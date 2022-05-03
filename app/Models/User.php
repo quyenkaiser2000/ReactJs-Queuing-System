@@ -19,8 +19,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
+
+
+        'avatar',
+        'phone',
+        'role_id',
     ];
 
     /**
@@ -41,4 +47,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role() {
+        return $this->belongsTo('App\Models\Role');
+    }
 }
