@@ -1,0 +1,112 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a:link , a:active, a:visited{
+	text-decoration: none;
+}
+
+
+/*login//////////////////////////////////////////////////////////////////
+*/
+.login div.logo{
+    margin: 0px auto;
+    height:136px;
+    width:170px;
+
+}
+.login .logo h1 >img{
+    margin-top: 82px;
+    
+}
+.login div.banner-login{
+    width: 500px;
+    margin-top: 113px;
+}
+.login .login-left{
+    /*background:#D4D4D7;*/
+}
+.login div.sign-in .username{
+    margin-top: 80px;
+    margin-bottom:4px;
+    font-style: normal;
+    font-weight:400;
+    font-size:18px;
+    line-height: 27px;
+    color: #37474F;
+}
+.login div.sign-in .pas{
+    margin-bottom:4px;
+    font-style: normal;
+    font-weight:400;
+    font-size:18px;
+    line-height: 27px;
+    color: #37474F;
+}
+.login div.sign-in input{
+    position:static;
+    width: 400px;
+    height: 44px;
+    background: #fff;
+    border:1.5px solid #D4D4D7;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.login div.sign-in #show_hide_password{
+    display: flex;
+    position: relative;
+}
+.login div.sign-in #show_hide_password a >img{
+    font-size: 22px;
+    top: 30%;
+    left: 62%;
+    position: absolute;
+}
+.login div.sign-in .Forgot_password{
+    color:#E73F3F;
+    font-size:14px;
+    line-height: 21px;
+    font-weight: 400;
+    font-style: normal;
+}
+.login div.sign-in .form-button{
+    margin-top: 19px;
+    width:162px;
+    margin-left: 121px;
+}
+.login div.sign-in #signin{
+    
+    color:#fff;
+    background: #FF9138;
+    font-size:16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-style: normal;
+    width:162px;
+    height: 40px;
+}
+.login div.name-project h3{
+    position:absolute;
+    top:360px;
+    left:1088px ;
+    font-size:34px;
+    line-height: 51px;
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    color: #FF7506;
+} .login div.name-project h1{
+    position:absolute;
+    top:405px;
+    left:1088px ;
+    font-size:34px;
+    line-height: 51px;
+    text-align: center;
+    font-weight: 900;
+    font-style: normal;
+    color: #FF7506;
+} 
