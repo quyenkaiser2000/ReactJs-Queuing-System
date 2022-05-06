@@ -26,9 +26,15 @@ a:link , a:active, a:visited{
 .login div.banner-login{
     width: 500px;
     margin-top: 113px;
+    height: 608px;
+    margin-left: 70px;
 }
 .login .login-left{
-    /*background:#D4D4D7;*/
+    background:#D4D4D7;
+}
+.login .login-left .sign-in .signin-form{
+    display:flex;
+    justify-content:center;
 }
 .login div.sign-in .username{
     margin-top: 80px;
@@ -62,8 +68,8 @@ a:link , a:active, a:visited{
 }
 .login div.sign-in #show_hide_password a >img{
     font-size: 22px;
-    top: 30%;
-    left: 62%;
+    top: 25%;
+    left: 92%;
     position: absolute;
 }
 .login div.sign-in .Forgot_password{
@@ -89,23 +95,20 @@ a:link , a:active, a:visited{
     width:162px;
     height: 40px;
 }
-.login div.name-project h3{
-    position:absolute;
-    top:360px;
-    left:1088px ;
+.login div.name-project >h3{
+    margin-top: 325px;
     font-size:34px;
     line-height: 51px;
-    text-align: center;
+    text-align: left;
     font-weight: 400;
     font-style: normal;
     color: #FF7506;
-} .login div.name-project h1{
-    position:absolute;
-    top:405px;
-    left:1088px ;
+}
+.login div.name-project >h1{
+    
     font-size:34px;
     line-height: 51px;
-    text-align: center;
+    text-align: left;
     font-weight: 900;
     font-style: normal;
     color: #FF7506;

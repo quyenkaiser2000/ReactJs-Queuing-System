@@ -11,17 +11,15 @@
     
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- Main CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"><!-- Main CSS -->
 	<link href="front/style.css" rel="stylesheet">
 
     <title>Login</title>
 </head>
 <body>
 
-    <section class="login">
-        <div class="container">
-            <div class="row">
+    <div class="login">
+            <div class="row" style="margin-right:0px !important;">
                 <div class="col-md-6 login-left" >
                     <div class="logo"> 
                         <h1>
@@ -30,7 +28,6 @@
                         </h1>
                     </div>
                     <div class="sign-in">
-                        <div class="container">
                             <div class="signin-content">
                                 <div class="signin-form">
                                    
@@ -77,25 +74,32 @@
                                     
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                            <div class="banner-login">
-                                <h2>
-                                    <img src="{{asset('/storage/pathimg/Group341.png')}}" alt="">
-                                </h2>
-                            </div>
-                            <div class="name-project">
-                                <h3> Hệ thống </h3>
-                                <h1> Quản lý xếp hàng</h1>
+                            <div class="row" style="margin-right:0px !important;">
+                                <div class="col-md-6">
+                                    <div class="banner-login">
+                                        <h2>
+                                            <img src="{{asset('/storage/pathimg/Group341.png')}}" alt="">
+                                        </h2>
+                                    </div>
+                            
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="name-project">
+                                        <h3> Hệ thống </h3>
+                                        <h1> Quản lý xếp hàng</h1>
+                                    </div>
+                                </div>
+
                             </div>
                 </div>
                 
             </div>
             
-        </div>
-    </section>
+
+    </div>
     
 </body>
 </html>
