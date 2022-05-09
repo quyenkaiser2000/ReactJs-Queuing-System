@@ -34,24 +34,12 @@
                             <div class="signin-content">
                                 <div class="signin-form">
                                    
-                                    <form method="POST" class="register-form" id="login-form" action="{{ route('login') }}">
+                                    <form method="POST" action="reset-password/{{$token}}">
 
 
 
                                         @csrf
-
-                                        <div class="form-group">
-                                        <label class="username">Tên đăng nhập *</label>
-                                            <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                        </div>
-
-
+                                        <h4 class="title">Đặt lại mật khẩu</h4>
                                         <div class="form-group">
                                             <label class="pas">Mật khẩu *</label>
                                             <div  id="show_hide_password">
@@ -66,12 +54,25 @@
                                                      </div>
                                             </div>
                                         </div>
+
+
                                         <div class="form-group">
-                                            <a class="Forgot_password" href="/send-mail">Quên mật khẩu?</a>
-                                            
+                                            <label class="pas">Nhập lại mật khẩu *</label>
+                                            <div  id="show_hide_password">
+                                                <input id="password-field-enter" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                    @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                    <div class="input-group-addon">
+                                                        <span toggle="#password-field-enter" class="far fa-fw fa-eye field-icon toggle-password-enter"></span>
+                                                     </div>
+                                            </div>
                                         </div>
+                                       
                                         <div class="form-group form-button">
-                                            <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
+                                            <input type="submit" name="submit" id="submit" class="form-submit" value="Xác nhận"/>
                                         </div>
                                     </form>
                                     
@@ -81,20 +82,15 @@
                 </div>
                 <div class="col-md-6">
                             <div class="row" style="margin-right:0px !important;">
-                                <div class="col-md-6">
-                                    <div class="banner-login">
+                                <div class="col-md-12">
+                                    <div class="banner-email">
                                         <h2>
-                                            <img src="{{asset('/storage/pathimg/Group341.png')}}" alt="">
+                                            <img src="{{asset('/storage/pathimg/Frame.png')}}" alt="">
                                         </h2>
                                     </div>
                             
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="name-project">
-                                        <h3> Hệ thống </h3>
-                                        <h1> Quản lý xếp hàng</h1>
-                                    </div>
-                                </div>
+                                
 
                             </div>
                 </div>
@@ -107,6 +103,16 @@
     <script>
        
        $(document).on('click','.toggle-password',function(){
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+            }
+       });
+       $(document).on('click','.toggle-password-enter',function(){
         $(this).toggleClass("fa-eye fa-eye-slash");
             var input = $($(this).attr("toggle"));
             

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login/login');
 });
+Route::get('/send-mail', function () {
+    return view('login/email');
+});
+Route::get('/forgotpas', function () {
+    return view('login/forgotpas');
+});
+Route::post('send-mail', [App\Http\Controllers\ResetPasswordController::class, 'sendMail'])->name('sendMail');
+
+Route::get('reset-password/{token}', [App\Http\Controllers\ResetPasswordController::class, 'showreset']);
+Route::post('reset-password/{token}', [App\Http\Controllers\ResetPasswordController::class, 'reset']);
+
 
 Auth::routes();
 

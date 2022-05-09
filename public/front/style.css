@@ -29,12 +29,37 @@ a:link , a:active, a:visited{
     height: 608px;
     margin-left: 70px;
 }
+.login div.banner-email{
+    margin-top: 113px;
+    height: 608px;
+    margin-left: 70px;
+
+    
+}
+.login div.banner-email h2 >img{
+    
+    margin-left: -20px;
+}
 .login .login-left{
     background:#D4D4D7;
 }
 .login .login-left .sign-in .signin-form{
     display:flex;
     justify-content:center;
+}
+.login .sign-in .title{
+    margin-top: 100px;
+    margin-bottom:13px;
+    display:flex;
+    justify-content:center;
+    font-style: normal;
+    font-weight:700;
+    font-size:22px;
+    line-height: 33px;
+    color: #282739;
+}
+.login .sign-in .form-group{
+    margin-bottom:0px !important;
 }
 .login div.sign-in .username{
     margin-top: 80px;
@@ -66,12 +91,7 @@ a:link , a:active, a:visited{
     display: flex;
     position: relative;
 }
-.login div.sign-in #show_hide_password a >img{
-    font-size: 22px;
-    top: 25%;
-    left: 92%;
-    position: absolute;
-}
+
 .login div.sign-in .Forgot_password{
     color:#E73F3F;
     font-size:14px;
@@ -85,6 +105,17 @@ a:link , a:active, a:visited{
     margin-left: 121px;
 }
 .login div.sign-in #signin{
+    
+    color:#fff;
+    background: #FF9138;
+    font-size:16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-style: normal;
+    width:162px;
+    height: 40px;
+}
+.login div.sign-in #submit{
     
     color:#fff;
     background: #FF9138;
@@ -113,3 +144,102 @@ a:link , a:active, a:visited{
     font-style: normal;
     color: #FF7506;
 } 
+.login  .field-icon {
+    float: right;
+    left: -40px;
+    margin-top: 11px;
+    position: relative;
+    z-index: 2;
+    font-size: 22px;
+    color: #6b728087;
+    cursor: pointer;
+  }
+
+
+  /******Email********/
+  .email div.logo{
+    margin: 0px auto;
+    height:136px;
+    width:170px;
+
+}
+.email .logo h1 >img{
+    margin-top: 82px;
+    
+}
+.email div.banner-email{
+    
+    margin-top: 113px;
+    height: 608px;
+    margin-left: 70px;
+}
+.email div.banner-email h2 >img{
+    
+    margin-left: -20px;
+}
+.email .email-left{
+    background:#D4D4D7;
+}
+.email .email-left .enter-email .email-form{
+    display:flex;
+    justify-content:center;
+}
+.email div.enter-email .content{
+    
+    margin-bottom:4px;
+    font-style: normal;
+    font-weight:400;
+    font-size:18px;
+    line-height: 27px;
+    color: #37474F;
+}
+.email div.enter-email .title{
+    margin-top: 100px;
+    margin-bottom:13px;
+    display:flex;
+    justify-content:center;
+    font-style: normal;
+    font-weight:700;
+    font-size:22px;
+    line-height: 33px;
+    color: #282739;
+}
+.email .enter-email input#email{
+    position:static;
+    width: 400px;
+    height: 44px;
+    background: #fff;
+    border:1.5px solid #D4D4D7;
+    border-radius: 8px;
+    margin-bottom: 48px;
+}
+
+.email .enter-email .button input:nth-child(1){
+    color:#FF9138;
+    background: #fff;
+    font-size:16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-style: normal;
+    width:162px;
+    height: 40px;
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius:8px;
+}
+.email .enter-email .button input:nth-child(2){
+    color:#fff;
+    background: #FF9138;
+    font-size:16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-style: normal;
+    width:162px;
+    height: 40px;
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius:8px;
+}
+.email .enter-email .button{
+    display: flex;
+    justify-content: space-evenly;
+}
+  
