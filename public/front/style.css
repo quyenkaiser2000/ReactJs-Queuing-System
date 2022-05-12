@@ -242,4 +242,280 @@ a:link , a:active, a:visited{
     display: flex;
     justify-content: space-evenly;
 }
-  
+
+/*//////////left-sidebar////////////*/
+.left-sidebar{
+    height: 100%;
+}
+.left-sidebar .panel .logo  {
+    margin: 0px auto;
+    width: 80px;
+    height: 53px;
+
+}
+.left-sidebar .panel .logo  h1 >img{
+   margin-top: 32px;
+}
+.left-sidebar .panel ul{
+    margin-top: 65px;
+    
+ }
+.left-sidebar .panel ul li >a{
+    display:block;
+    padding:12px 0px;
+    padding-left: 40px;
+    
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7E7D88;
+    
+ }
+ .left-sidebar .panel ul li >a:hover{
+    background-color: #ff913847;
+    color: #FF9138;
+    font-size:16.1px;
+    
+ }
+ .left-sidebar .col-10{
+    background-color:#D4D4D7;
+ }
+ .left-sidebar .content{
+    margin-top: 29px;
+}
+ .left-sidebar .content .title{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    font-style: normal;
+    color: #FF9138;
+ }
+ .left-sidebar .content .profile-mini{
+     display:flex;
+     align-items: center;
+ }
+ .left-sidebar .content .profile-mini .img-profile-mini >img{
+    width:40px;
+    height: 40px;
+    border-radius:48px;
+}
+.left-sidebar .content .profile-mini .img-profile-mini {
+    display: flex;
+}
+.left-sidebar .content .profile-mini .img-profile-mini .name-profile-mini{
+    display: grid;
+}
+
+.left-sidebar .content .avatar-upload {
+    position: relative;
+    margin-bottom: 20px;
+}
+.left-sidebar .content .avatar-upload .avatar-edit {
+    position: absolute;
+    right: 40px;
+    z-index: 1;
+    top: 90px;
+}
+.left-sidebar .content .avatar-upload .avatar-edit input {
+    display: none;
+}
+.left-sidebar .content .avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #fff;
+    border: 1px solid #d2d6de;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+    margin-top: 115px;
+}
+.left-sidebar .content .avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+.left-sidebar .content .avatar-upload .avatar-edit input + label:after {
+    content: "\f030";
+    font-family: 'FontAwesome';
+    color: #337ab7;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 121px;
+    text-align: center;
+    line-height: 34px;
+    margin: auto;
+    font-size: 22px;
+}
+.left-sidebar .content .avatar-upload .avatar-preview .profile-user-img {
+    width: 248px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+  }
+
+  .left-sidebar .content .profile-mini .icon-bell{
+      color: #FF9138;
+      margin-right: 40px;
+  }
+  .left-sidebar .content .profile-mini .name-profile-mini span:nth-child(1){
+    color: #7E7D88;
+    font-weight:400;
+    font-size:12px;
+    line-height:18px;
+    margin-left:8px;
+}
+.left-sidebar .content .profile-mini .name-profile-mini span:nth-child(2){
+    color: #535261;
+    font-weight:700;
+    font-size:16px;
+    line-height:24px;
+    margin-left:8px;
+}
+.left-sidebar .content input{
+    width:384px;
+    height:44px;
+    background: #EAEAEC;
+    border-radius: 6px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #535261;
+    font-size: 16px;
+    font-weight:400;
+    line-height:24px;
+}
+.left-sidebar .content label{
+    font-size: 16px;
+    line-height:24px;
+    font-weight: 600;
+    color: #282739;
+    margin-bottom: 8px;
+    margin-top: 24px;
+}
+.left-sidebar .content .row .col-4{
+    margin-left:-70px;
+}
+.left-sidebar .content .name span{
+    font-size:24px;
+    font-weight:700;
+    line-height:36px;
+    color: #282739;
+}
+.left-sidebar .content .name {
+    margin:auto;
+    width:186px;
+    
+}
+.left-sidebar .panel .logout{
+    margin-top:220px;
+    margin-left: 10px;
+}
+
+
+.left-sidebar .content .detail-profile{
+    background:#fff;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(219,219,219,0.5);
+    padding-top: 40px;
+    padding-bottom:54px;
+    padding-left: 20px;
+    margin-top: 100px;
+}
+.left-sidebar .content .detail-profile .col-4{
+    padding-left: 28px;
+}
+html, body {
+    margin:0px;
+    height:100%;
+  }
+.left-sidebar .panel .img-logout{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    float: left;
+    margin-right:10px;
+    
+}
+.left-sidebar .panel .btn-logout{
+    width: 176px;
+    height: 48px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ff7506;
+    background: #FFF2E7;
+    border-radius:8px;
+}
+.left-sidebar .content .profile-mini .notification{
+    width:360px;
+    background: #fff;
+    box-shadow: 2px 2px 15px rgba(70,64,67,0.1);
+    border-radius: 10px;
+    
+    
+}
+.left-sidebar .content .profile-mini .hide{
+    
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    display: none;
+    /* display: revert; */
+    z-index: 100;
+    
+}
+.show{
+    
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    display: block ;
+    /* display: revert; */
+    z-index: 100;
+    
+}
+.left-sidebar .content .profile-mini .title-notification{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #fff;
+    background: #FF9138;
+    display:block;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left:24px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+.left-sidebar .content .profile-mini .content-notification{
+    width: 100%;
+    height: 500px;
+    overflow: scroll;
+    
+}
+.left-sidebar .content .profile-mini .content-notification li{
+    margin-top: 16px;
+    margin-left: 24px;
+    
+}
+.left-sidebar .content .profile-mini .content-notification .name{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #BF5805;
+    
+}
+.left-sidebar .content .profile-mini .content-notification .time{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #535261;
+    display: block;
+    
+}

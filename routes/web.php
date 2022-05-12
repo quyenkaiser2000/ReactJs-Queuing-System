@@ -31,3 +31,4 @@ Route::post('reset-password/{token}', [App\Http\Controllers\ResetPasswordControl
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('logout-user',[App\Http\Controllers\SessionsController::class, 'out']);
