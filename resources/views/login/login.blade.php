@@ -22,8 +22,8 @@
 <body>
 
     <div class="login">
-            <div class="row" style="margin-right:0px !important;">
-                <div class="col-md-6 login-left" >
+            <div class="row" style="margin-right:0px !important; height:100%;">
+                <div class="col-6 login-left" >
                     <div class="logo"> 
                         <h1>
                             <img src="{{asset('/storage/pathimg/Logoalta.png')}}" alt="">
@@ -79,9 +79,9 @@
                             </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6">
                             <div class="row" style="margin-right:0px !important;">
-                                <div class="col-md-6">
+                                <div class="col-6">
                                     <div class="banner-login">
                                         <h2>
                                             <img src="{{asset('/storage/pathimg/Group341.png')}}" alt="">
@@ -89,7 +89,7 @@
                                     </div>
                             
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-6">
                                     <div class="name-project">
                                         <h3> Hệ thống </h3>
                                         <h1> Quản lý xếp hàng</h1>

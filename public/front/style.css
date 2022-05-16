@@ -13,6 +13,9 @@ a:link , a:active, a:visited{
 
 /*login//////////////////////////////////////////////////////////////////
 */
+.login{
+    height:100%;
+}
 .login div.logo{
     margin: 0px auto;
     height:136px;
@@ -24,21 +27,18 @@ a:link , a:active, a:visited{
     
 }
 .login div.banner-login{
-    width: 500px;
+    width: 600px;
     margin-top: 113px;
-    height: 608px;
-    margin-left: 70px;
+    height: 614px;
+    margin-left: 40px;
 }
-.login div.banner-email{
-    margin-top: 113px;
-    height: 608px;
-    margin-left: 70px;
 
-    
+.login div.banner-email{
+    margin-top: 153px;
+
 }
 .login div.banner-email h2 >img{
-    
-    margin-left: -20px;
+  
 }
 .login .login-left{
     background:#D4D4D7;
@@ -127,15 +127,17 @@ a:link , a:active, a:visited{
     height: 40px;
 }
 .login div.name-project >h3{
-    margin-top: 325px;
-    font-size:34px;
+    margin-top: 407px;
+    font-size: 34px;
     line-height: 51px;
     text-align: left;
     font-weight: 400;
     font-style: normal;
     color: #FF7506;
+    margin-left: 35px;
 }
 .login div.name-project >h1{
+    margin-left: 35px;
     
     font-size:34px;
     line-height: 51px;
@@ -157,34 +159,36 @@ a:link , a:active, a:visited{
 
 
   /******Email********/
-  .email div.logo{
+.send-email{
+    height: 100%;
+}
+  .send-email div.logo{
     margin: 0px auto;
     height:136px;
     width:170px;
 
 }
-.email .logo h1 >img{
+.send-email .logo h1 >img{
     margin-top: 82px;
     
 }
-.email div.banner-email{
+.send-email div.banner-email{
     
-    margin-top: 113px;
-    height: 608px;
-    margin-left: 70px;
-}
-.email div.banner-email h2 >img{
+    margin-top: 153px;
     
-    margin-left: -20px;
 }
-.email .email-left{
+.send-email div.banner-email h2 >img{
+    width: 100%;
+    height: 100%;
+}
+.send-email .email-left{
     background:#D4D4D7;
 }
-.email .email-left .enter-email .email-form{
+.send-email .email-left .enter-email .email-form{
     display:flex;
     justify-content:center;
 }
-.email div.enter-email .content{
+.send-email div.enter-email .content{
     
     margin-bottom:4px;
     font-style: normal;
@@ -193,7 +197,7 @@ a:link , a:active, a:visited{
     line-height: 27px;
     color: #37474F;
 }
-.email div.enter-email .title{
+.send-email div.enter-email .title{
     margin-top: 100px;
     margin-bottom:13px;
     display:flex;
@@ -204,7 +208,7 @@ a:link , a:active, a:visited{
     line-height: 33px;
     color: #282739;
 }
-.email .enter-email input#email{
+.send-email .enter-email input#email{
     position:static;
     width: 400px;
     height: 44px;
@@ -214,7 +218,7 @@ a:link , a:active, a:visited{
     margin-bottom: 48px;
 }
 
-.email .enter-email .button input:nth-child(1){
+.send-email .enter-email .button input:nth-child(1){
     color:#FF9138;
     background: #fff;
     font-size:16px;
@@ -226,7 +230,7 @@ a:link , a:active, a:visited{
     box-shadow: 0px 0px 6px #E7E9F2;
     border-radius:8px;
 }
-.email .enter-email .button input:nth-child(2){
+.send-email .enter-email .button input:nth-child(2){
     color:#fff;
     background: #FF9138;
     font-size:16px;
@@ -238,7 +242,7 @@ a:link , a:active, a:visited{
     box-shadow: 0px 0px 6px #E7E9F2;
     border-radius:8px;
 }
-.email .enter-email .button{
+.send-email .enter-email .button{
     display: flex;
     justify-content: space-evenly;
 }
@@ -258,7 +262,8 @@ a:link , a:active, a:visited{
 }
 .left-sidebar .panel ul{
     margin-top: 65px;
-    
+    margin-left: -13px;
+    margin-right: -15px;
  }
 .left-sidebar .panel ul li >a{
     display:block;
@@ -278,6 +283,22 @@ a:link , a:active, a:visited{
     font-size:16.1px;
     
  }
+ .left-sidebar .panel ul li .active{
+    background-color: #FF7506;
+    color: #FFF;
+    font-size:16.1px;
+    
+ }
+ .left-sidebar .panel ul li .active:hover{
+    background-color: #FF7506;
+    color: #FFF;
+    font-size:16.1px;
+    
+ }
+ .left-sidebar .panel ul li{
+    margin-bottom: 5px;
+    
+ }
  .left-sidebar .col-10{
     background-color:#D4D4D7;
  }
@@ -290,6 +311,22 @@ a:link , a:active, a:visited{
     line-height: 30px;
     font-style: normal;
     color: #FF9138;
+ }
+ .left-sidebar .content .title-tongquan{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #FF7506;
+    margin-top:40px;
+    margin-left: 24px;
+ }
+ .left-sidebar .content .title-chart-capso{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    font-style: normal;
+    color: #FF9138;
+    margin-top: 45px;
  }
  .left-sidebar .content .profile-mini{
      display:flex;
@@ -358,8 +395,11 @@ a:link , a:active, a:visited{
   }
 
   .left-sidebar .content .profile-mini .icon-bell{
-      color: #FF9138;
-      margin-right: 40px;
+    background: #FFF2E7;
+    color: #FF9138;
+    margin-right: 24px;
+    padding: 5px;
+    border-radius: 32px;
   }
   .left-sidebar .content .profile-mini .name-profile-mini span:nth-child(1){
     color: #7E7D88;
@@ -411,7 +451,7 @@ a:link , a:active, a:visited{
     
 }
 .left-sidebar .panel .logout{
-    margin-top:220px;
+    margin-top:276px;
     margin-left: 10px;
 }
 
@@ -518,4 +558,231 @@ html, body {
     color: #535261;
     display: block;
     
+}
+.chiso{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 20px;
+}
+.chiso >div{
+    width: 186px;
+    height: 120px;
+    background: #fff;
+    border-radius: 10px;
+    padding-left: 12px;
+
+}
+.chiso .number{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    color: #535261; 
+    margin-top: 12px;
+
+}
+.chiso .dacap .number-phantram{
+    float: right;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+    color: #FF9138;
+    padding: 5px 10px;
+    border-radius: 14px;
+    background: rgb(255,149,1,0.15);
+    margin-right: 7px;
+}
+.chiso .dangcho .number-phantram{
+    float: right;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+    color: #FF9138;
+    padding: 5px 10px;
+    border-radius: 14px;
+    background: rgb(255,149,1,0.15);
+    margin-right: 7px;
+}
+.chiso .dasudung .number-phantram{
+    float: right;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+    color: #E73F3F;
+    padding: 5px 10px;
+    border-radius: 14px;
+    background: rgb(231,63,63,0.15);
+    margin-right: 7px;
+}
+.chiso .boqua .number-phantram{
+    float: right;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+    color: #E73F3F;
+    padding: 5px 10px;
+    border-radius: 14px;
+    background: rgb(231,63,63,0.15);
+    margin-right: 7px;
+}
+.chiso div .content{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #535261;
+    width: 80px;
+    display: inline-block;
+}
+.chiso .dacap div:nth-child(1){
+    margin-top:-15px;
+}
+.chiso .dasudung div:nth-child(1){
+    margin-top:-15px;
+}
+.chiso .dangcho div:nth-child(1){
+    margin-top:-15px;
+}
+.chiso .boqua div:nth-child(1){
+    margin-top:-15px;
+}
+.chiso .dacap i.icon{
+    color:#6493F9;
+    border: 1px solid #DADADA;  
+    background: #6695fb40;
+    font-size: 24px;
+    margin-right: 12px;
+    padding: 12px 12px;
+    border-radius: 50%;
+}
+.chiso .dasudung i.icon{
+    color:#35C75A;
+    border: 1px solid #DADADA;  
+    background: #35c75a3d;
+    font-size: 24px;
+    margin-right: 12px;
+    padding: 12px 12px;
+    border-radius: 50%;
+}
+.chiso .dangcho i.icon{
+    color:#FFAC6A;
+    border: 1px solid #DADADA;  
+    background: #ffac6a45;
+    font-size: 24px;
+    margin-right: 12px;
+    padding: 12px 12px;
+    border-radius: 50%;
+}
+.chiso .boqua i.icon{
+    color:#F86D6D;
+    border: 1px solid #DADADA;  
+    background: #f86d6d38;
+    font-size: 24px;
+    margin-right: 12px;
+    padding: 12px 12px;
+    border-radius: 50%;
+}
+.br-dashboard{
+    background: #D4D4D7;
+}
+.chart-area .title h4{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #282739;
+}
+.chart-area .title span{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #a9a9B0;
+}
+.chart-area .title{
+    margin-top:24px;
+    display:flex;
+    justify-content:space-between;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    
+}
+.chart-area{
+    margin-top:16px;
+    display:grid;
+    background:#fff;
+    border-radius:12px;
+}
+
+.chart-cicle{
+    display:flex;
+    justify-content:space-between;
+}
+.chart-cicle .chart-status span{
+    display:block;
+}
+.chart-cicle #chart-radial-capso {
+   margin-left: -80px;
+}
+.chart-cicle #chart-radial-device {
+    margin-left: -80px;
+ }
+ .chart-cicle #chart-radial-service {
+    margin-left: -80px;
+ }
+ .chart-cicle .chart-solieu{
+    margin-left: -90px;
+    margin-top: 18px;
+}
+.chart-cicle .chart-solieu h4{
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 36px;
+    color: #535261;
+}
+.chart-cicle .chart-solieu span{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FF7506;
+}
+.chart-cicle .chart-solieu span i{
+    font-size:11px;
+    margin-right: 3px;
+}
+.chart-cicle .chart-status span i{
+    font-size:4px;
+    color:#FFD130;
+    margin-right: 5px;
+}
+.chart-cicle .chart-status span{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    color: #7E7D88;
+    margin-bottom: 18px;
+}
+.chart-cicle .chart-status{
+    margin-left: 35px;
+    margin-top: 25px;
+}
+.chart-cicle .chart-solieuchitiet{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FF7506;
+    display: grid;
+    align-content: space-evenly;
+}
+.chart-cicle .chart-solieuchitiet span{
+    margin-left: 5px;
+}
+.br-chart-cicle{
+    background-color:#FFF;
+    box-shadow:2px 2px 15px rgba(70,64,67,0.1);
+    border-radius: 12px;
+    margin-top: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
 }

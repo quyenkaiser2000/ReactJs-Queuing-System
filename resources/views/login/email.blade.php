@@ -21,8 +21,8 @@
 </head>
 <body>
 
-    <div class="email">
-            <div class="row" style="margin-right:0px !important;">
+    <div class="send-email">
+            <div class="row" style="margin-right:0px !important;height:100%;">
                 <div class="col-md-6 email-left" >
                     <div class="logo"> 
                         <h1>

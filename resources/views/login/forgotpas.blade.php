@@ -22,7 +22,7 @@
 <body>
 
     <div class="login">
-            <div class="row" style="margin-right:0px !important;">
+            <div class="row" style="margin-right:0px !important;height:100%;">
                 <div class="col-md-6 login-left" >
                     <div class="logo"> 
                         <h1>

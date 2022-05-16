@@ -32,3 +32,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('logout-user',[App\Http\Controllers\SessionsController::class, 'out']);
+
+Route::get('/dashboard',[App\Http\Controllers\Dashboard\DashboardController::class, 'index']);
+Route::get('/myprofile',[App\Http\Controllers\User\MyProfileController::class, 'index']);
