@@ -35,3 +35,5 @@ Route::post('logout-user',[App\Http\Controllers\SessionsController::class, 'out'
 
 Route::get('/dashboard',[App\Http\Controllers\Dashboard\DashboardController::class, 'index']);
 Route::get('/myprofile',[App\Http\Controllers\User\MyProfileController::class, 'index']);
+Route::get('/thietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'index']);
+Route::get('/thietbi/chitiet',[App\Http\Controllers\Dashboard\DeviceController::class, 'detail']);

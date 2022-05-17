@@ -331,6 +331,7 @@ a:link , a:active, a:visited{
  .left-sidebar .content .profile-mini{
      display:flex;
      align-items: center;
+     margin-right: 49px;
  }
  .left-sidebar .content .profile-mini .img-profile-mini >img{
     width:40px;
@@ -419,7 +420,7 @@ a:link , a:active, a:visited{
     width:384px;
     height:44px;
     background: #EAEAEC;
-    border-radius: 6px;
+    border-radius: 8px;
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -427,15 +428,9 @@ a:link , a:active, a:visited{
     font-size: 16px;
     font-weight:400;
     line-height:24px;
+    border: 1.5px solid #D4D4D7;
 }
-.left-sidebar .content label{
-    font-size: 16px;
-    line-height:24px;
-    font-weight: 600;
-    color: #282739;
-    margin-bottom: 8px;
-    margin-top: 24px;
-}
+
 .left-sidebar .content .row .col-4{
     margin-left:-70px;
 }
@@ -785,4 +780,390 @@ html, body {
     margin-top: 12px;
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.br-thietbi{
+    width: 1240px;
+    height: auto;
+    background:#F6F6F6;
+}
+.left-sidebar .content .title-dsthietbi{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    font-style: normal;
+    color: #FF7506;
+    margin-top: 45px;
+ }
+
+
+ /*dropdown*/
+.jumbotron{
+    padding: 0rem 0rem;
+    margin-bottom: 0px;
+    background-color:#f6f6f6 ;
+    border-radius: 0rem;
+}
+.action{
+    margin-right:24px;
+}
+.action .wrapper-action .jumbotron {
+	 width: 300px;
+	 max-width: 100%;
+	 border-radius: 0.8rem;
+}
+.action .wrapper-action .jumbotron h2 {
+	 margin: 0.6em 0 2em;
+	 font-weight: 400;
+	 letter-spacing: 0.0452em;
+}
+
+.action .wrapper-action .drop {
+	 display: inline-block;
+	 position: relative;
+	 text-align: center;
+     margin-bottom: 0px;
+    margin-top: 0px;
+}
+.action .wrapper-action .drop input[type="checkbox"] {
+	 display: none;
+}
+.action .wrapper-action  .drop input[type="checkbox"]:checked ~ .drop-items-action {
+	 opacity: 1;
+	 max-height: 400px;
+	 padding: 0.6rem 0;
+}
+.action .wrapper-action .drop input[type="checkbox"]:checked ~ .control {
+	 z-index: 99;
+	 box-shadow: 0 0 0 2px #FF7506;
+}
+.action .wrapper-action .drop input[type="checkbox"]:checked ~ .control:after {
+	 transform: rotate(180deg);
+}
+.action .wrapper-action .drop input[type="checkbox"]:checked ~ .overlay-close {
+	 transform: none;
+	 pointer-events: initial;
+}
+.action .wrapper-action .drop .control {
+    position: relative;
+    color: #535261;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 12px;
+    background: #FFF;
+    border-radius: 8px;
+    width: 300px;
+    text-align: left;
+    font-size: 16px;
+    
+}
+ @media (hover: hover) {
+	.action .wrapper-action .drop .control:hover {
+        opacity: 0.75;
+	}
+}
+.action .wrapper-action .drop .control:after {
+    content: "";
+    display: inline-block;
+    height: 0.5em;
+    width: 0.5em;
+    margin-left: 0.8em;
+    background-image: url("/storage/pathimg/sortdown.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    float: right;
+    margin-top: 6px;
+    font-size: 28px;
+
+}
+.action .wrapper-action .drop .drop-items-action {
+    position: absolute;
+    top: calc(100% + .4rem);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    z-index: 99;
+    text-align: left;
+}
+.action .wrapper-action .drop .drop-items-action .item-drop {
+	 list-style: none;
+}
+.action .wrapper-action .drop .drop-items-action .item-drop a {
+    display: block;
+    text-decoration: none;
+    padding: 11px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size:14px;
+    line-height:21px;
+    color: #282739;
+}
+ @media (hover: hover) {
+	.action .wrapper-action .drop .drop-items-action .item-drop a:hover {
+		 background: #FFF2E7;
+	}
+}
+.action .wrapper-action .drop .overlay-close {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+    transform: translate(100%, 0);
+    pointer-events: none;
+}
+.left-sidebar .content label{
+    font-size: 16px;
+    line-height:24px;
+    font-weight: 600;
+    color: #282739;
+    margin-bottom: 8px;
+    margin-top: 24px;
+}
+
+.connect .wrapper-connect .jumbotron {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 0.8rem;
+}
+.connect .wrapper-connect .jumbotron h2 {
+    margin: 0.6em 0 2em;
+    font-weight: 400;
+    letter-spacing: 0.0452em;
+}
+
+.connect .wrapper-connect .drop {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.connect .wrapper-connect .drop input[type="checkbox"] {
+    display: none;
+}
+.connect .wrapper-connect  .drop input[type="checkbox"]:checked ~ .drop-items-connect {
+    opacity: 1;
+    max-height: 400px;
+    padding: 0.6rem 0;
+}
+.connect .wrapper-connect .drop input[type="checkbox"]:checked ~ .control {
+    z-index: 99;
+    box-shadow: 0 0 0 2px #FF7506;
+}
+.connect .wrapper-connect .drop input[type="checkbox"]:checked ~ .control:after {
+    transform: rotate(180deg);
+}
+.connect .wrapper-connect .drop input[type="checkbox"]:checked ~ .overlay-close {
+    transform: none;
+    pointer-events: initial;
+}
+.connect .wrapper-connect .drop .control {
+    position: relative;
+    color: #535261;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 12px;
+    background: #FFF;
+    border-radius: 8px;
+    width: 300px;
+    text-align: left;
+    font-size: 16px;
+
+}
+@media (hover: hover) {
+    .connect .wrapper-connect .drop .control:hover {
+        opacity: 0.75;
+   }
+}
+.connect .wrapper-connect .drop .control:after {
+    content: "";
+    display: inline-block;
+    height: 0.5em;
+    width: 0.5em;
+    margin-left: 0.8em;
+    background-image: url("/storage/pathimg/sortdown.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size: contain;
+    float: right;
+    margin-top: 6px;
+    font-size: 28px;
+}
+.connect .wrapper-connect .drop .drop-items-connect {
+    position: absolute;
+    top: calc(100% + .4rem);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    z-index: 99;
+    text-align: left;
+
+}
+.connect .wrapper-connect .drop .drop-items-connect .item-drop {
+    list-style: none;
+}
+.connect .wrapper-connect .drop .drop-items-connect .item-drop a {
+    display: block;
+    text-decoration: none;
+    padding: 11px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size:14px;
+    line-height:21px;
+    color: #282739;
+}
+@media (hover: hover) {
+    .connect .wrapper-connect .drop .drop-items-connect .item-drop a:hover {
+        background: #FFF2E7;
+   }
+}
+.connect .wrapper-connect .drop .overlay-close {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+    transform: translate(100%, 0);
+    pointer-events: none;
+}
+
+
+.br-thietbi .search .status{
+    display: flex;
+}
+.br-thietbi .search{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom:16px;
+}
+.search-key form{
+    position: relative;
+}
+.search-key button{
+    position: absolute;
+    top: 30%;
+    right: 5%;
+}
+.search-key i{
+    font-size:20px;
+    color: #FF7506;
+}
+.search-key input{
+    background: #FFF !important;
+    width:300px !important;
+}
+.search-key lable{
+    font-size: 16px;
+    line-height:24px;
+    font-weight: 600;
+    color: #282739;
+    margin-bottom: 8px;
+    margin-top: 24px;
+}
+
+.br-thietbi .breadcrumb-thietbi{
+    display:flex;
+}
+.br-thietbi .breadcrumb-thietbi i{
+    margin-left: 14px;
+    margin-right: 14px;
+}
+.br-thietbi .breadcrumb-thietbi .breadcrumb-thietbi-item{
+    font-size: 20px;
+    line-height:30px;
+    font-weight: 700;
+    color: #7E7D88;
+}
+.br-thietbi .breadcrumb-thietbi .breadcrumb-thietbi-item a{
+    font-size: 20px;
+    line-height:30px;
+    font-weight: 700;
+    color: #7E7D88;
+}
+.br-thietbi .breadcrumb-thietbi i{
+    font-size: 20px;
+    line-height:30px;
+    font-weight: 700;
+    color: #7E7D88 !important;
+}
+.br-thietbi .breadcrumb-thietbi .active{
+    font-size: 20px;
+    line-height:30px;
+    font-weight: 700;
+    color: #FF7506;
+}
+.table-thietbi table{
+    border-radius: 12px;
+    filter: drop-shadow(2px 2px 8px rgba(232, 239, 244, 0.8));
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+}
+.table-thietbi thead tr{
+    background:#FF9138;
+    color: #fff;
+    font-weight: 700;
+    font-size:16px;
+    line-height: 24px;
+
+}
+.table-thietbi tbody tr:nth-child(2n+2){
+    background: #FFF2E7;
+}
+.table-thietbi tbody tr:nth-child(2n+1){
+    background: #FFF;
+}
+.table-thietbi tbody tr td:nth-child(1){
+    display: none;
+}
+.table-thietbi thead tr th:nth-child(1){
+    display: none;
+}
+.table-thietbi thead tr th:nth-child(n-1){
+    border-right: 1px solid #FFE3CD;
+}
+.table-thietbi tbody tr td:nth-child(n-1){
+    border-right: 1px solid #FFE3CD;
+}
+
+.btn-addthietbi button{
+    width:80px;
+    height: 94px;
+    font-weight:600 ;
+    font-size:14px;
+    line-height: 19px;
+    color:#FF7506;
+    background:#FFF2E7;
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px 0px 0px 6px;
+}
+.btn-addthietbi i{
+    font-size: 28px;
+    background: #FF9138;
+    border-radius: 7px;
+    align-items: center;
+    padding-top: -5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    color: #fff;
 }
