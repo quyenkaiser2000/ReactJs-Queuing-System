@@ -36,7 +36,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="active" href="{{'/thietbi'}}" aria-expanded="false">
+                                    <a class="" href="{{'/thietbi'}}" aria-expanded="false">
                                         <span class="hide-menu">Thiết bị</span>
                                     </a>
                                 </li>
@@ -46,7 +46,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="" href="{{'/capso'}}" aria-expanded="false">
+                                    <a class="active" href="{{'/capso'}}" aria-expanded="false">
                                         <span class="hide-menu">Cấp số</span>
                                     </a>
                                 </li>
@@ -251,6 +251,30 @@
     });
 
 
+
+
+
+    $(document).on('click','.btn-update',function(){
+        
+        var element = document.getElementById("test");
+        element.classList.add("test1");
+        element.classList.remove("test2");
+
+    });
+    $(document).on('click','.exit-inso',function(){
+        
+        var element = document.getElementById("test");
+        element.classList.add("test2");
+        element.classList.remove("test1");
+
+    });
+    document.addEventListener('mouseup', function(e) {
+    var element = document.getElementById('test');
+    if (!element.contains(e.target)) {
+        element.classList.add("test2");
+        element.classList.remove("test1");
+    }
+    });
 </script>
 
 </html>

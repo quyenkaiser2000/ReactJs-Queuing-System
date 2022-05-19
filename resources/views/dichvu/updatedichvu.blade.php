@@ -1,5 +1,5 @@
-@extends('thietbi.master')
-@section('title','Thiết bị')
+@extends('dichvu.master')
+@section('title','Cập nhật dịch vụ')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,9 +7,13 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách thiết bị</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item ">Dịch vụ</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./dichvu">Danh sách dịch vụ</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./dichvu/chitiet">Chi tiết</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="">Cập nhật</a></li>
+
+
+
                                         </ol>
                                     </nav>
                                 </div>
@@ -90,7 +94,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Quản lý thiết bị</span>
+                                        <span>Quản lý dịch vụ</span>
                                     </div>
                                 </div>
                                     
@@ -98,74 +102,108 @@
                             </div>
                             
                             
-                            <div class="row br-detaildevice">
-                                    <div class="col-11">
-                                        <div class="detail-device">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="title-detailthietbi">
-                                                            <h4>
-                                                                Thông tin thiết bị
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <ul>
-                                                                    <li><span>Mã thiết bị:</span></li>
-                                                                    <li><span>Tên thiết bị:</span></li>
-                                                                    <li><span>Địa chỉ IP:</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-8">
-                                                                <ul>
-                                                                    <li><span>KIO_01</span></li>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>128.172.308</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                       
-                                                       
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <ul>
-                                                                    <li><span>Loại thiết bị:</span></li>
-                                                                    <li><span>Tên đăng nhập:</span></li>
-                                                                    <li><span>Mật khẩu:</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-8">
-                                                                <ul>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>Linhkyo011</span></li>
-                                                                    <li><span>CMS</span></li>
-                                                                </ul>
+                            <div class="row br-detaildevice br-update-device">
+                                    <form>
+                                        <div class="col-12 form-data" >
+                                            <div class="detail-device">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="title-detailthietbi">
+                                                                <h4>
+                                                                    Thông tin dịch vụ
+                                                                </h4>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <label for="" class="service-use-title">Dịch vụ sử dụng:</label>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <ul>
+                                                                        <li class="update-device">
+                                                                            <span>Mã dịch vụ:<i class="fa-solid fa-asterisk"></i></span>
+                                                                            <input type="text" name="ma_service" value="201">
+                                                                        </li>
+                                                                        <li class="update-device">
+                                                                            <span>Tên dịch vụ:<i class="fa-solid fa-asterisk"></i></span>
+                                                                            <input type="text" name="name_service" value="Khám tim mạch">
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        
+                                                        
+                                                        </div>
+                                                        <div class="col-6 textarea-service">
+                                                            <div class="row" style="width:100%;">
+                                                                <ul>
+                                                                    <li class="update-device">
+                                                                        <span>Mô tả:</span>
+                                                                        <textarea rows="" cols=""></textarea>
+                                                                    </li>
+                                                                </ul>
+                                                                
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <span class="service-use-content">Khám tim mạch, Khám sản-Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng, Khám hô hấp, Khám tổng quát.</span>
+                                                    <div class="row ">
+                                                        <div class="col-12">
+                                                            <div class="title-detailthietbi">
+                                                                <h4>
+                                                                    Quy tắc cấp số
+                                                                </h4>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="row quitac-capso-service">
+                                                        <div class="col-2">
+                                                            <div class="checkbox-capsovervice">
+                                                                <input type="checkbox" id="up-auto" name="up-auto" value="">
+                                                                <label for="up-auto">Tăng tự động từ:</label>
+                                                            </div>
+                                                            <div class="checkbox-capsovervice">
+                                                                <input type="checkbox" id="prefix" name="prefix" value="">
+                                                                <label for="prefix">Prefix::</label>
+                                                            </div>
+                                                            <div class="checkbox-capsovervice">
+                                                                <input type="checkbox" id="surfix" name="surfix" value="">
+                                                                <label for="surfix">Surfix:</label>
+                                                            </div>
+                                                            
+                                                            
+                                                            
+                                                           
+                                                        </div>
+                                                        <div class="col-4 div_number">
+                                                            <label for="up-auto"><span class="number-auto-up">0001</span><span> đến </span><span class="number-auto-up">9999</span></label>
+                                                            <label for="prefix"><span class="number-auto-up">0001</span> </label>
+                                                            <label for="surfix"><span class="number-auto-up">0001</span> </label>
+                                                        </div>
+ 
+                                                    </div>
+                                                    <div class="row quitac-capso-service">
+                                                            <div class="col-12 checkbox-capsovervice">
+                                                                <input type="checkbox" id="reset-day" name="reset-day" value="">
+                                                                <label for="reset-day">Reset mỗi ngày:</label>
+                                                            </div>
+                                                    </div>
+                                                    <div class="row note-updatedevice">
+                                                        <span><i class="fa-solid fa-asterisk"></i> Là trường thông tin bắt buộc</span>
+                                                    </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/capnhatthietbi'"><i class="fa-solid fa-pen"></i>Cập nhật thiết bị</button>
-                                    </div>
+                                        <div class="col-12 form-submit">
+                                            <button type="button" class="btn-huy">Hủy bỏ</button>
+                                            <button type="submit" class="btn-update">Cập nhật</button>
+                                        </div>
+                                    </form>
 
                                 </div>
 
+                            </div>
+                            <div class="row">
+                                
                             </div>
                     </div>
             </div>

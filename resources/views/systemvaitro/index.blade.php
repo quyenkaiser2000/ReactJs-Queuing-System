@@ -1,5 +1,5 @@
-@extends('thietbi.master')
-@section('title','Thiết bị')
+@extends('systemvaitro.master')
+@section('title','Vai trò')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,9 +7,8 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách thiết bị</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item ">Cài đặt hệ thống</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Quản lý vai trò</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -90,78 +89,104 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Quản lý thiết bị</span>
+                                        <span>Quản lý vai trò</span>
                                     </div>
                                 </div>
                                     
 
                             </div>
-                            
-                            
-                            <div class="row br-detaildevice">
-                                    <div class="col-11">
-                                        <div class="detail-device">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="title-detailthietbi">
-                                                            <h4>
-                                                                Thông tin thiết bị
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <ul>
-                                                                    <li><span>Mã thiết bị:</span></li>
-                                                                    <li><span>Tên thiết bị:</span></li>
-                                                                    <li><span>Địa chỉ IP:</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-8">
-                                                                <ul>
-                                                                    <li><span>KIO_01</span></li>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>128.172.308</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                       
-                                                       
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <ul>
-                                                                    <li><span>Loại thiết bị:</span></li>
-                                                                    <li><span>Tên đăng nhập:</span></li>
-                                                                    <li><span>Mật khẩu:</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-8">
-                                                                <ul>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>Linhkyo011</span></li>
-                                                                    <li><span>CMS</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <label for="" class="service-use-title">Dịch vụ sử dụng:</label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <span class="service-use-content">Khám tim mạch, Khám sản-Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng, Khám hô hấp, Khám tổng quát.</span>
-                                                    </div>
-                                                </div>
-                                        </div>
+                            <div class="row">
+                                <div class="col-11 search" style="display:block;">
+                                    <div class="search-key" style="float:right;">
+                                        <label for="">Từ khóa</label>
+                                        <form>
+                                            <input 
+                                                    type="text" plaseholder:"search">
+                                            </input>
+                                            <button type="submit" value="search" >
+                                                <i class="fa fa-search" aria-hidden="true"></i> 
+                                        </form>
                                     </div>
-                                    <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/capnhatthietbi'"><i class="fa-solid fa-pen"></i>Cập nhật thiết bị</button>
+                                    
+                                    </div>
+                            </div>
+                            
+                            <div class="row ">
+                                    <div class="col-11 table-thietbi">
+                                        <table class="table table-striped table-class">
+                                        
+                                            <thead>
+                                                <tr>
+                                                    <th>Tên vai trò</th>
+                                                    <th>Số người dùng</th>
+                                                    <th>Mô tả</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Kế toán</td>
+                                                        <td>6</td>
+                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
+                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bác sĩ</td>
+                                                        <td>6</td>
+                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
+                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Lễ tân</td>
+                                                        <td>6</td>
+                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
+                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Quản lý</td>
+                                                        <td>6</td>
+                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
+                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Admin</td>
+                                                        <td>6</td>
+                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
+                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mô tả</td>
+                                                        <td>6</td>
+                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
+                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+
+                                                    </tr>
+                                                    
+                                                    
+                                                        
+                                                </tbody>
+
+                                            </table>
+                                            <div class='pagination-container' >
+                                                <nav>
+                                                    <ul class="pagination" style="float:right;">
+                                                        <li data-page="prev" >
+                                                            <span> < <span class="sr-only">(current)</span></span>
+                                                        </li>
+                                                        <li data-page="next" id="prev">
+                                                            <span> > <span class="sr-only">(current)</span></span>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                    </div>
+                                    <div class=" col-1 btn-addthietbi">
+                                    <button type="button" class="btn" onclick="window.location='./thietbi/themthietbi'" ><i class="fa-light fa-plus"></i>Thêm vai trò</button>
                                     </div>
 
                                 </div>

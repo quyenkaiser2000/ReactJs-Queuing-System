@@ -13,4 +13,10 @@ class DeviceController extends Controller
     public function detail(){
         return view('thietbi.detailthietbi');
     }
+    public function create(){
+        return view('thietbi.createthietbi');
+    }
+    public function update(){
+        return view('thietbi.updatethietbi');
+    }
 }

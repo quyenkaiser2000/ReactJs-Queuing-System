@@ -1,5 +1,5 @@
-@extends('thietbi.master')
-@section('title','Thiết bị')
+@extends('capso.master')
+@section('title','Cấp số')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,8 +7,8 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Danh sách thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item ">Cấp số</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Danh sách cấp số</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -89,7 +89,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Danh sách thiết bị</span>
+                                        <span>Quản lý cấp số</span>
                                     </div>
                                 </div>
                                     
@@ -99,7 +99,7 @@
                                 <div class="col-11 search">
                                     <div class="status">
                                         <div class="action">
-                                            <label for="">Trạng thái hoạt động</label>
+                                            <label for="">Tên dịch vụ</label>
                                             <div class="wrapper-action">
                                                 <div class="jumbotron">  
                                                     <label class="drop">
@@ -127,8 +127,8 @@
                                                 
                                                 </div>
                                         </div>
-                                        <div class="connect">
-                                            <label for="">Trạng thái kết nối</label>
+                                        <div class="connect" style="margin-right:24px;">
+                                            <label for="">Tình trạng</label>
                                             <div class="wrapper-connect">
                                                 <div class="jumbotron">  
                                                     <label class="drop">
@@ -145,6 +145,35 @@
                                                         <li class="item-drop">
                                                         <a target="_blank"
                                                             href="">Mất kết nối</a></li>
+                                                    </ul>
+
+                                                    <label for="target-drop-example" class="overlay-close"></label>
+
+                                                    </label>   
+
+                                                </div>
+
+                                                
+                                                </div>
+                                        </div>
+                                        <div class="action" >
+                                            <label for="">Nguồn cấp</label>
+                                            <div class="wrapper-action">
+                                                <div class="jumbotron">  
+                                                    <label class="drop">
+                                                    <input type="checkbox" id="target-drop-example2"> 
+                                                    <span class="control">Tất cả</span> 
+
+                                                    <ul class="drop-items-action">
+                                                        <li class="item-drop">
+                                                        <a target="_blank"
+                                                            href="">Tất cả</a></li>
+                                                        <li class="item-drop">
+                                                        <a target="_blank"
+                                                            href="">Hoạt động</a></li>
+                                                        <li class="item-drop">
+                                                        <a target="_blank"
+                                                            href="">Ngưng hoạt động</a></li>
                                                     </ul>
 
                                                     <label for="target-drop-example" class="overlay-close"></label>
@@ -176,124 +205,89 @@
                                         
                                             <thead>
                                                 <tr>
-                                                    <th>Mã thiết bị</th>
-                                                    <th>Tên thiết bị</th>
-                                                    <th>Địa chỉ IP</th>
-                                                    <th>Trạng thái hoạt động</th>
-                                                    <th>Trạng thái kết nối</th>
-                                                    <th>Dịch vụ sử dụng</th>
-                                                    <th></th>
+                                                    <th>STT</th>
+                                                    <th>Tên khách hàng</th>
+                                                    <th>Tên dịch vụ</th>
+                                                    <th>Thời gian cấp</th>
+                                                    <th>Hạn sử dụng</th>
+                                                    <th>Trạng thái</th>
+                                                    <th>Nguồn cấp</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
+                                                        <td>Kiosk</td>
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
+                                                        <td>Kiosk</td>
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
+                                                        <td>Kiosk</td>
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
+                                                        <td>Kiosk</td>
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
+                                                        <td>Kiosk</td>
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
+                                                        <td>Kiosk</td>
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
+                                                        <td>2010001</td>
+                                                        <td>Lê Ái Vân</td>
                                                         <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
+                                                        <td>14:35 - 07/11/2021</td>
+                                                        <td>14:35 - 12/11/2021</td>
+                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
                                                         <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
+                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
+                                                    
+                                                    
                                                         
                                                 </tbody>
 
@@ -312,7 +306,7 @@
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/themthietbi'" ><i class="fa-light fa-plus"></i>Thêm thiết bị</button>
+                                        <button type="button" class="btn" onclick="window.location='./capso/capsomoi'" ><i class="fa-light fa-plus"></i>Cấp số mới</button>
                                     </div>
 
                                 </div>

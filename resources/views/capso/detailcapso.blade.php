@@ -1,5 +1,5 @@
-@extends('thietbi.master')
-@section('title','Thiết bị')
+@extends('capso.master')
+@section('title','Cấp số')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,9 +7,9 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách thiết bị</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item ">Cấp số</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách cấp số</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -90,7 +90,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Quản lý thiết bị</span>
+                                        <span>Thông tin cấp số</span>
                                     </div>
                                 </div>
                                     
@@ -105,7 +105,7 @@
                                                     <div class="col-12">
                                                         <div class="title-detailthietbi">
                                                             <h4>
-                                                                Thông tin thiết bị
+                                                                Thông tin cấp số
                                                             </h4>
                                                         </div>
                                                     </div>
@@ -115,16 +115,20 @@
                                                         <div class="row">
                                                             <div class="col-4">
                                                                 <ul>
-                                                                    <li><span>Mã thiết bị:</span></li>
-                                                                    <li><span>Tên thiết bị:</span></li>
-                                                                    <li><span>Địa chỉ IP:</span></li>
+                                                                    <li><span>Họ tên:</span></li>
+                                                                    <li><span>Tên dịch vụ:</span></li>
+                                                                    <li><span>Số thứ tự:</span></li>
+                                                                    <li><span>Thời gian cấp:</span></li>
+                                                                    <li><span>hạn sử dụng:</span></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-8">
                                                                 <ul>
-                                                                    <li><span>KIO_01</span></li>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>128.172.308</span></li>
+                                                                    <li><span>Nguyễn Thị Dung</span></li>
+                                                                    <li><span>Khám tim mạch</span></li>
+                                                                    <li><span>2001201</span></li>
+                                                                    <li><span>14:35 - 07/11/2021</span></li>
+                                                                    <li><span>18:00 - 07/11/2021</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -135,39 +139,35 @@
                                                         <div class="row">
                                                             <div class="col-4">
                                                                 <ul>
-                                                                    <li><span>Loại thiết bị:</span></li>
-                                                                    <li><span>Tên đăng nhập:</span></li>
-                                                                    <li><span>Mật khẩu:</span></li>
+                                                                    <li><span>Nguồn cấp:</span></li>
+                                                                    <li><span>Trạng thái:</span></li>
+                                                                    <li><span>Số điện thoại:</span></li>
+                                                                    <li><span>Địa chỉ Email::</span></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-8">
                                                                 <ul>
                                                                     <li><span>Kiosk</span></li>
-                                                                    <li><span>Linhkyo011</span></li>
-                                                                    <li><span>CMS</span></li>
+                                                                    <li><span>Đang chờ</span></li>
+                                                                    <li><span>0948523623</span></li>
+                                                                    <li><span>nguyendung@gmail.com</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <label for="" class="service-use-title">Dịch vụ sử dụng:</label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <span class="service-use-content">Khám tim mạch, Khám sản-Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng, Khám hô hấp, Khám tổng quát.</span>
-                                                    </div>
-                                                </div>
+                                                
                                         </div>
                                     </div>
                                     <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/capnhatthietbi'"><i class="fa-solid fa-pen"></i>Cập nhật thiết bị</button>
+                                        <button type="button" class="btn" onclick="window.location='./capso'"><i class="fa-solid fa-arrow-left-long"></i></i>Quay lại</button>
                                     </div>
-
+                        
                                 </div>
 
                             </div>
                     </div>
             </div>
+            
             
 @endsection

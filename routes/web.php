@@ -37,3 +37,24 @@ Route::get('/dashboard',[App\Http\Controllers\Dashboard\DashboardController::cla
 Route::get('/myprofile',[App\Http\Controllers\User\MyProfileController::class, 'index']);
 Route::get('/thietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'index']);
 Route::get('/thietbi/chitiet',[App\Http\Controllers\Dashboard\DeviceController::class, 'detail']);
+Route::get('/thietbi/themthietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'create']);
+Route::get('/thietbi/capnhatthietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'update']);
+
+Route::get('/dichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'index']);
+Route::get('/dichvu/themdichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'create']);
+Route::get('/dichvu/capnhatdichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'update']);
+Route::get('/dichvu/chitiet',[App\Http\Controllers\Dashboard\ServiceController::class, 'detail']);
+
+
+Route::get('/capso',[App\Http\Controllers\Dashboard\CapsoController::class, 'index']);
+Route::get('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'create']);
+Route::get('/capso/detailcapso',[App\Http\Controllers\Dashboard\CapsoController::class, 'detail']);
+
+Route::get('/baocao',[App\Http\Controllers\Dashboard\BaocaoController::class, 'index']);
+
+Route::get('/system/vaitro',[App\Http\Controllers\Dashboard\SystemVaitroController::class, 'index']);
+Route::get('/system/taikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'index']);
+Route::get('/system/nguoidung',[App\Http\Controllers\Dashboard\SystemNguoidungController::class, 'index']);
+
+
+

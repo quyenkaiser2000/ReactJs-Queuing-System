@@ -1,5 +1,5 @@
-@extends('thietbi.master')
-@section('title','Thiết bị')
+@extends('systemtaikhoan.master')
+@section('title','Tài khoản')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,8 +7,8 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Danh sách thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item ">Cài đặt hệ thống</li>
+                                            <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Quản lý tài khoản</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -89,7 +89,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Danh sách thiết bị</span>
+                                        <span>Danh sách tài khoản</span>
                                     </div>
                                 </div>
                                     
@@ -99,7 +99,7 @@
                                 <div class="col-11 search">
                                     <div class="status">
                                         <div class="action">
-                                            <label for="">Trạng thái hoạt động</label>
+                                            <label for="">Tên vai trò</label>
                                             <div class="wrapper-action">
                                                 <div class="jumbotron">  
                                                     <label class="drop">
@@ -116,35 +116,6 @@
                                                         <li class="item-drop">
                                                         <a target="_blank"
                                                             href="">Ngưng hoạt động</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
-                                                </div>
-
-                                                
-                                                </div>
-                                        </div>
-                                        <div class="connect">
-                                            <label for="">Trạng thái kết nối</label>
-                                            <div class="wrapper-connect">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example1"> 
-                                                    <span class="control">Tất cả</span> 
-
-                                                    <ul class="drop-items-connect">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Kết nối</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Mất kết nối</a></li>
                                                     </ul>
 
                                                     <label for="target-drop-example" class="overlay-close"></label>
@@ -176,124 +147,87 @@
                                         
                                             <thead>
                                                 <tr>
-                                                    <th>Mã thiết bị</th>
-                                                    <th>Tên thiết bị</th>
-                                                    <th>Địa chỉ IP</th>
+                                                    <th>Tên đăng nhập</th>
+                                                    <th>Họ tên</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Email</th>
+                                                    <th>Vai trò</th>
                                                     <th>Trạng thái hoạt động</th>
-                                                    <th>Trạng thái kết nối</th>
-                                                    <th>Dịch vụ sử dụng</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
                                                         <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
+                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
+                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
+                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
+                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
+                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
+                                                        <td>tuyetnguyen@12</td>
+                                                        <td>Nguyen Văn A</td>
+                                                        <td>0919256712</td>
+                                                        <td>tuyetnguyen123@gmail.com</td>
+                                                        <td>Kế toán</td>
                                                         <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
+                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
                                                         
                                                     </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
+                                                    
                                                         
                                                 </tbody>
 
@@ -312,7 +246,7 @@
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/themthietbi'" ><i class="fa-light fa-plus"></i>Thêm thiết bị</button>
+                                        <button type="button" class="btn" onclick="window.location='./thietbi/themthietbi'" ><i class="fa-light fa-plus"></i>Thêm tài khoản</button>
                                     </div>
 
                                 </div>

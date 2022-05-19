@@ -21,7 +21,7 @@
 <body>
     <div class="left-sidebar">
         <div class="row" style="margin-right: 0px !important;margin-left: 0px !important;height:100%;">
-            <div class="" style="width:200px;">
+            <div class="" style="width:200px;background: #fff;">
                     <div class="panel ">
                             <div class="logo">
                                 <h1>

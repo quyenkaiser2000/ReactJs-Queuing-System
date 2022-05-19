@@ -1,5 +1,5 @@
-@extends('thietbi.master')
-@section('title','Thiết bị')
+@extends('capso.master')
+@section('title','Cấp số mới')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,9 +7,9 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách thiết bị</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item ">Cấp số</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./capso">Danh sách cấp số</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Cấp số mới</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -27,7 +27,7 @@
                                                             <span class="time">Thời gian nhận số: 12h20 ngày 30/11/2022</span>
                                                         </a>
                                                     </li>
-                                                    <hr>
+                                                    <hr>W
                                                     <li>
                                                         <a href="#">
                                                             <span class="name">Người dùng: Nguyễn Thị Thùy Dung</span>
@@ -90,7 +90,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Quản lý thiết bị</span>
+                                        <span>Quản lý cấp số</span>
                                     </div>
                                 </div>
                                     
@@ -98,76 +98,69 @@
                             </div>
                             
                             
-                            <div class="row br-detaildevice">
-                                    <div class="col-11">
-                                        <div class="detail-device">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="title-detailthietbi">
-                                                            <h4>
-                                                                Thông tin thiết bị
-                                                            </h4>
-                                                        </div>
-                                                    </div>
+                            <div class="row br-detaildevice br-update-device In-so">
+                                    <div class="col-12">
+                                        <div class="form-inso">
+                                            <form>
+                                            <div class="col-12">
+                                                <div class="title-capso">
+                                                    <span>CẤP SỐ MỚI</span>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <ul>
-                                                                    <li><span>Mã thiết bị:</span></li>
-                                                                    <li><span>Tên thiết bị:</span></li>
-                                                                    <li><span>Địa chỉ IP:</span></li>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="action" >
+                                                        <label for="" class="title-inso">Dịch vụ khách hàng lựa chọn</label>
+                                                        <div class="wrapper-action">
+                                                            <div class="jumbotron">  
+                                                                <label class="drop">
+                                                                <input type="checkbox" id="target-drop-example2"> 
+                                                                <span class="control">Chọn dịch vụ</span> 
+
+                                                                <ul class="drop-items-action">
+                                                                    <li class="item-drop">
+                                                                    <a target="_blank"
+                                                                        href="">Khám tim mạch</a></li>
+                                                                    <li class="item-drop">
+                                                                    <a target="_blank"
+                                                                        href="">Khám tai mũi họng</a></li>
+                                                                    <li class="item-drop">
+                                                                    <a target="_blank"
+                                                                        href="">Khám răng hàm mặt</a></li>
                                                                 </ul>
+
+                                                                <label for="target-drop-example" class="overlay-close"></label>
+
+                                                                </label>   
+
                                                             </div>
-                                                            <div class="col-8">
-                                                                <ul>
-                                                                    <li><span>KIO_01</span></li>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>128.172.308</span></li>
-                                                                </ul>
-                                                            </div>
+
+                                                            
                                                         </div>
-                                                       
-                                                       
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <ul>
-                                                                    <li><span>Loại thiết bị:</span></li>
-                                                                    <li><span>Tên đăng nhập:</span></li>
-                                                                    <li><span>Mật khẩu:</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-8">
-                                                                <ul>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>Linhkyo011</span></li>
-                                                                    <li><span>CMS</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <label for="" class="service-use-title">Dịch vụ sử dụng:</label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <span class="service-use-content">Khám tim mạch, Khám sản-Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng, Khám hô hấp, Khám tổng quát.</span>
-                                                    </div>
-                                                </div>
+                                            </div>
+                                            <div class="col-12 form-submit">
+                                                <button type="button" class="btn-huy">Hủy bỏ</button>
+                                                <button type="button" class="btn-update">In số</button>
+                                            </div>
+                                        </form>
                                         </div>
-                                    </div>
-                                    <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/capnhatthietbi'"><i class="fa-solid fa-pen"></i>Cập nhật thiết bị</button>
                                     </div>
 
                                 </div>
 
                             </div>
+                            
                     </div>
+            </div>
+            <div class="test" id="test" >
+                <span><i class="fa-solid fa-xmark exit-inso" id=""></i></span>
+                <span>Số thứ tự được cấp</span>
+                <span>2001201</span>
+                <span>DV: Khám răng hàm mặt <span class="capso-quay">(tại quầy số 1)</span></span>
+                <div class="time-capso">
+                    <span>Thời gian cấp: 09:30 11/10/2021</span>
+                    <span>Hạn sử dụng:: 17:30 11/10/2021</span>
+                </div>
             </div>
             
 @endsection

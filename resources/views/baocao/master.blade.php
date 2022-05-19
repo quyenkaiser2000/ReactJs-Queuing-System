@@ -36,7 +36,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="active" href="{{'/thietbi'}}" aria-expanded="false">
+                                    <a class="" href="{{'/thietbi'}}" aria-expanded="false">
                                         <span class="hide-menu">Thiết bị</span>
                                     </a>
                                 </li>
@@ -51,14 +51,20 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="" href="{{'/baocao'}}" aria-expanded="false">
+                                    <a class="active" href="{{'/baocao'}}" aria-expanded="false">
                                         <span class="hide-menu">Báo cáo</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="" href="{{'/hethong'}}" aria-expanded="false">
-                                        <span class="hide-menu">Cài đặt hệ thống</span>
-                                    </a>
+                                <li class="system">
+                                    <div class="menu-system" href="{{'/hethong'}}" aria-expanded="false">
+                                        <span class="hide-menu ">Cài đặt hệ thống <i class="fa-solid fa-ellipsis-vertical" style="margin-left:24px;"></i></span>
+                                        <div class="hover-system">
+                                            <a href="system/vaitro"><span>Quản lý vai trò</span></a>
+                                            <a href="system/taikhoan"><span>Quản lý tài khoản</span></a>
+                                            <a href="system/nguoidung"><span>Quản lý người dùng</span></a>
+                                        </div>
+                                    </div>
+                                    
                                 </li>
                             </ul>
                             
@@ -249,7 +255,6 @@
         element.classList.remove("show");
     }
     });
-
 
 </script>
 

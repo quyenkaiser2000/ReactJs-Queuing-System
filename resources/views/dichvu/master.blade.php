@@ -36,12 +36,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="active" href="{{'/thietbi'}}" aria-expanded="false">
+                                    <a class="" href="{{'/thietbi'}}" aria-expanded="false">
                                         <span class="hide-menu">Thiết bị</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="" href="{{'/dichvu'}}" aria-expanded="false">
+                                    <a class="active" href="{{'/dichvu'}}" aria-expanded="false">
                                         <span class="hide-menu">Dịch vụ</span>
                                     </a>
                                 </li>
