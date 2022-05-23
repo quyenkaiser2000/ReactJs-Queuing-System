@@ -15,10 +15,13 @@ class RoleSeeder extends Seeder
     {
         //
         Role::create([
-            'name' => 'admin',
+            'name' => 'Admin',
         ]);
         Role::create([
-            'name' => 'user',
+            'name' => 'Kế toán',
+        ]);
+        Role::create([
+            'name' => 'Quản lý',
         ]);
     }
 }

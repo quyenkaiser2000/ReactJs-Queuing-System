@@ -80,7 +80,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -144,7 +144,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -153,45 +153,51 @@
                                     <div class="col-3" style="margin-top:25px;">
                                         <div class="avatar-upload">
                                             <div class="avatar-edit">
-                                            <form action="" method="post" id="form-image">
-                                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                            <form action="myprofile/{{Auth::user()->id}}" method="post" id="form-image" enctype="multipart/form-data">
+                                            @csrf
+                                                <input type='file' name='avatar' data-id="{{Auth::user()->id}}" id="imageUpload" accept=".png, .jpg, .jpeg"
+                                                
+                                                
+                                                        onchange = "this.form.submit();">
+                                                
+                                                
                                                 <label for="imageUpload"></label>
                                             </form>
                                             </div>
                                             <div class="avatar-preview">
-                                                <img class="profile-user-img img-responsive img-circle" id="imagePreview" src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="User profile picture">
+                                                <img class="profile-user-img img-responsive img-circle" id="imagePreview" src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="User profile picture">
                                             </div>
                                         </div>
                                         <div class="name">
-                                            <span>Nguyễn Lê Long</span>
+                                            <span>{{Auth::user()->name}}</span>
                                         </div>
                                     </div>
                                     <div class="col-5">
                                         <div class="tennguoidung">
                                             <label class="">Tên người dùng</label>
-                                            <input type="text" class="" value="Nguyễn Lê Long" disabled="disabled">
+                                            <input type="text" class="" value="{{Auth::user()->name}}" disabled="disabled">
                                         </div>
                                         <div class="tendangnhap">
                                             <label class="">Tên đang nhập</label>
-                                            <input type="text" class="" value="lehuynhaivan01" disabled="disabled">
+                                            <input type="text" class="" value="{{Auth::user()->username}}" disabled="disabled">
                                         </div>
                                         <div class="phone">
                                             <label class="">Số điện thoại</label>
-                                            <input type="text" class="" value="02587413" disabled="disabled">
+                                            <input type="text" class="" value="{{Auth::user()->phone}}" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="pas">
                                             <label class="">Mật khẩu</label>
-                                            <input type="text" class="" value="123123123" disabled="disabled">
+                                            <input type="text" class="" value="123123" disabled="disabled">
                                         </div>
                                         <div class="email">
                                             <label class="">Email</label>
-                                            <input type="text" class="" value="lehuynhaivan@gmail.com" disabled="disabled"> 
+                                            <input type="text" class="" value="{{Auth::user()->email}}" disabled="disabled"> 
                                         </div>
                                         <div class="vaitro">
                                             <label class="">Vai trò</label>
-                                            <input type="text" class="" value="Kế toán" disabled="disabled">
+                                            <input type="text" class="" value="{{Auth::user()->role->name}}" disabled="disabled">
                                         </div>
                                     </div>
 
@@ -225,34 +231,53 @@
     });
 
 
-    var options = {
-          series: [{
-          name: 'series1',
-          data: [31, 40, 28, 51, 42, 109, 100,102,69,85,141,155]
-        
-        }],
-          chart: {
-          height: 350,
-          type: 'area'
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: 'smooth'
-        },
-        xaxis: {
-          type: 'datetime',
-          categories: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11","12"]},
-        tooltip: {
-          x: {
-            format: 'dd/MM/yy'
-          },
-        },
-        };
+        $(document).ready(function(){
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-      
+            $("#imageUpload").change(function(data){
+
+            var imageFile = data.target.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(imageFile);
+
+
+            var avatar_id = $(this).data('id');
+            var url = "{{route('change-avatar-user')}}";
+
+            console.log($("#form-image").serialize());
+
+                $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+               $.ajax({
+                
+                   url: url,
+                   method:"POST",
+                   data:{avatar_id:avatar_id,
+                        name_avatar:$("#form-image").serialize(),
+                },
+                   dataType:'json',
+                   success:function(data){
+                        alert(data);
+                        console.log(data);
+                    },
+                    
+                });
+           
+
+
+            reader.onload = function(evt){
+                $('#imagePreview').attr('src', evt.target.result);
+                $('#imagePreview').hide();
+                $('#imagePreview').fadeIn(650);
+            }
+            
+            });
+
+
+
+        });
+
 </script>
 </html>

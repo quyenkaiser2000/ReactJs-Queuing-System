@@ -457,6 +457,8 @@ a:link , a:active, a:visited{
     font-weight:700;
     line-height:36px;
     color: #282739;
+    display: block;
+    text-align: center;
 }
 .left-sidebar .content .name {
     margin:auto;

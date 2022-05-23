@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
                 'avatar' => null,
                 'role_id' => 1,
                 'phone' =>null,
+                'status' => 0,
             
         ]); 
         User::create([ 
@@ -32,6 +33,8 @@ class UserSeeder extends Seeder
             'avatar' => null,
             'role_id' => 2,
             'phone' =>null,
+            'status' => 0,
+
         
     ]); User::create([ 
         'name' => 'Tấn Quyền',
@@ -40,7 +43,9 @@ class UserSeeder extends Seeder
         'password' => Hash::make('123123123'),
         'avatar' => null,
         'role_id' => 2,
-        'phone' =>null,
+        'phone' =>'0123456789',
+        'status' => 1,
+
     
     ]); 
     }

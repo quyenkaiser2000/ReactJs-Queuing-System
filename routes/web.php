@@ -35,6 +35,10 @@ Route::post('logout-user',[App\Http\Controllers\SessionsController::class, 'out'
 
 Route::get('/dashboard',[App\Http\Controllers\Dashboard\DashboardController::class, 'index']);
 Route::get('/myprofile',[App\Http\Controllers\User\MyProfileController::class, 'index']);
+
+Route::get('/myprofile/{id}',[App\Http\Controllers\User\MyProfileController::class, 'show']);
+Route::post('/myprofile/{id}',[App\Http\Controllers\User\MyProfileController::class, 'test']);
+
 Route::get('/thietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'index']);
 Route::get('/thietbi/chitiet',[App\Http\Controllers\Dashboard\DeviceController::class, 'detail']);
 Route::get('/thietbi/themthietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'create']);
@@ -57,4 +61,5 @@ Route::get('/system/taikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanCont
 Route::get('/system/nguoidung',[App\Http\Controllers\Dashboard\SystemNguoidungController::class, 'index']);
 
 
+Route::post('/myprofile/change-avatar',[App\Http\Controllers\Auth\ChangeAvatarUserController::class, 'changeavatar'])->name('change-avatar-user');
 
