@@ -22,7 +22,8 @@ class CreateDevicesTable extends Migration
             $table->string('ip');
             $table->string('namelogin');
             $table->string('pass');
-
+            $table->string('status-action');
+            $table->string('status-connect');
             $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
         });

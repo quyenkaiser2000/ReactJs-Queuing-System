@@ -160,6 +160,14 @@
                                     <div class="search-key">
                                         <label for="">Từ khóa</label>
                                         <form>
+                                            <input type="text" name="dates" />
+                                            <button type="submit" value="search" >
+                                                <i class="fa fa-search" aria-hidden="true"></i> 
+                                        </form>
+                                    </div>
+                                    <div class="search-key">
+                                        <label for="">Từ khóa</label>
+                                        <form>
                                             <input 
                                                     type="text" plaseholder:"search">
                                             </input>

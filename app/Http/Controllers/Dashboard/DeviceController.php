@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Device;
 
 class DeviceController extends Controller
 {
     public function index(){
+        
         return view('thietbi.thietbi');
     }
     public function detail(){

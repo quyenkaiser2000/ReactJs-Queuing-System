@@ -1607,3 +1607,6 @@ html, body {
     font-size:16.1px;
 }
 
+.daterangepicker.show-calendar .drp-buttons{
+    display:none !important;
+}
