@@ -12,7 +12,7 @@ class MyProfileController extends Controller
 {
     public function index(){
         $useravatar = User::find(Auth::user()->id);
-        dd($useravatar);
+        //dd($useravatar);
         return view('dashboard.myprofile',compact('useravatar'));
     }
     public function show(Request $request){

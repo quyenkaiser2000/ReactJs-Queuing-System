@@ -1272,7 +1272,6 @@ html, body {
     line-height: 24px;
     color: #282739;
     margin-bottom: 8px;
-    display: flex;
     align-items: center;
 }
 .update-device input{
@@ -1404,7 +1403,7 @@ html, body {
 .quitac-capso-service .checkbox-capsovervice lable{
     margin: 0px !important;
 }
-.quitac-capso-service .number-auto-up{
+.number-auto-up{
     font-weight: 400 !important;
     font-size: 16px !important;
     line-height: 24px !important;
@@ -1609,4 +1608,106 @@ html, body {
 
 .daterangepicker.show-calendar .drp-buttons{
     display:none !important;
+}
+
+
+.select2-container{
+    width:98% !important;
+    margin-bottom: 16px;
+}
+
+
+.select2-container--default .select2-selection--multiple{
+    height:80px;
+    border: solid #FFAC6A 1px !important;
+    border-radius: 8px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    left: 85% !important;
+    margin-top: 2px;
+    font-size: 21px !important;
+    color: #fff !important;
+    border-right: none !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display{
+    padding-right: 30px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    background-color: #FFAC6A !important;
+    color: #FFFFFF ;
+    box-shadow: 0px 0px 6px #E7E9F2 !important;
+    border-radius: 9px !important;
+    border:none !important;
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    padding:5px 13px;
+} 
+
+.select2-container--default .select2-selection--single{
+    height: 44px;
+    margin-bottom: -8px;
+    border: 1.5px solid #D4D4D7;
+    border-radius: 8px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color:#FF7506 transparent transparent transparent;
+    border-width: 6px 6px 0 6px ;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 33px !important;
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+    width: 30px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    height: 100%;
+    padding: 7px 16px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+.dropdown-updevice .select2-container {
+    width: 100% !important;
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+    border-color: transparent transparent #FF7506  transparent;
+    border-width: 0 6px 7px 6px;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    display: none;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover, .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
+    background-color: #FFAC6A !important;
+    color: #fff !important;
+    outline: none;
+}
+.icon-stop{
+    font-size: 10px;
+    color: red;
+    margin-right: 5px;
+}
+.icon-action{
+    font-size: 10px;
+    color: green;
+    margin-right: 5px;
+}
+.hidden div >p{
+    display: none;
+}
+.service-detail .action .wrapper-action .jumbotron{
+    width: 160px !important;
+}
+.service-detail .action .wrapper-action .drop .control{
+    width: 160px !important;
+    border: 1.5px solid #D4D4D7;
+
+}
+.service-detail .search-key input{
+    width: 210px !important;
 }

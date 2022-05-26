@@ -1,7 +1,7 @@
 @extends('dichvu.master')
 @section('title','Chi tiết dịch vụ')
 @section('body')
-            <div class="col-10 br-thietbi" >
+            <div class="col-10 br-thietbi service-detail" >
                     <div class="content">
                             <div class="row" style="justify-content: space-between;padding:0px 15px;">
                                 <div class="">
@@ -17,7 +17,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -81,7 +81,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -117,16 +117,16 @@
                                                                 <div class="row">
                                                                     <div class="col-4">
                                                                         <ul>
-                                                                            <li><span>Mã thiết bị:</span></li>
-                                                                            <li><span>Tên thiết bị:</span></li>
-                                                                            <li><span>Địa chỉ IP:</span></li>
+                                                                            <li><span>Mã dịch vụ:</span></li>
+                                                                            <li><span>Tên dịch vụ:</span></li>
+                                                                            <li><span>Mô tả:</span></li>
                                                                         </ul>
                                                                     </div>
                                                                     <div class="col-8">
                                                                         <ul>
-                                                                            <li><span>KIO_01</span></li>
-                                                                            <li><span>Kiosk</span></li>
-                                                                            <li><span>128.172.308</span></li>
+                                                                            <li><span>{{$service->code_service}}</span></li>
+                                                                            <li><span>{{$service->name}}</span></li>
+                                                                            <li><span>{{$service->content}}</span></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -144,26 +144,42 @@
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="row">
-                                                                    <div class="col-4">
+                                                                    <div class="col-5">
                                                                         <ul>
-                                                                            <li><span>Mã thiết bị:</span></li>
-                                                                            <li><span>Tên thiết bị:</span></li>
-                                                                            <li><span>Địa chỉ IP:</span></li>
+                                                                            @if($service->up_auto == '1')
+                                                                                <li><span>Tăng tự động:</span></li>
+                                                                            @endif
+                                                                            @if($service->prefix == '1')
+                                                                                <li><span>Prefix:</span></li>
+                                                                            @endif
+                                                                            @if($service->surfix == '1')
+                                                                                <li><span>Surfix:</span></li>
+                                                                            @endif
                                                                         </ul>
                                                                     </div>
-                                                                    <div class="col-8">
-                                                                        <ul>
-                                                                            <li><span>KIO_01</span></li>
-                                                                            <li><span>Kiosk</span></li>
-                                                                            <li><span>128.172.308</span></li>
+                                                                    <div class="col-7" style="display: contents;">
+                                                                        <ul class="row" style="display: grid;">
+                                                                        @if($service->up_auto == '1')
+                                                                            <li><span class="number-auto-up">0001</span><span> đến </span><span class="number-auto-up">9999</span></li>
+                                                                        @endif  
+                                                                        @if($service->prefix == '1')
+                                                                            <li><span class="number-auto-up">0001</span></li>
+                                                                        @endif
+                                                                        @if($service->surfix == '1')
+                                                                            <li><span class="number-auto-up">0001</span></li>
+
+                                                                        @endif
+
                                                                         </ul>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div>
-                                                            <span>Reset mỗi ngày</span>
-                                                            <span>Ví dụ: 201-2001</span>
+                                                        <div style="    display: grid;">
+                                                            @if($service->reset_day == '1')
+                                                                <span>Reset mỗi ngày</span>
+                                                            @endif
+                                                            <span style="font-weight: 400 !important;">Ví dụ: 201-2001</span>
                                                         </div>
                                                     </div>
                                                     <div class="col-1">
@@ -171,7 +187,7 @@
                                                     </div>
                                                     <div class="col-7 table-dichvu">
                                                         <div class="row">
-                                                            <div class="col-11 search">
+                                                            <div class="col-12 search">
                                                                 <div class="status">
                                                                     <div class="action">
                                                                         <label for="">Trạng thái</label>
@@ -204,6 +220,13 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="search-key">
+                                                                    <label for="">Chọn thời gian</label>
+                                                                    <form>
+                                                                        <input type="text" name="dates" />
+                                                                        <button type="submit" value="search" >
+                                                                    </form>
+                                                                </div>
+                                                                <div class="search-key">
                                                                     <label for="">Từ khóa</label>
                                                                     <form>
                                                                         <input 
@@ -216,7 +239,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-11 table-thietbi">
+                                                            <div class="col-12 table-thietbi">
                                                                 <table class="table table-striped table-class">
                                                                 
                                                                     <thead>
@@ -228,28 +251,13 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>KIO_01</td>
-                                                                                <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>KIO_01</td>
-                                                                                <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
+                                                                                
+                                                                                    <td><i class="fa-solid fa-circle icon-action"></i>Hoạt động</td>
+                                                                                
+                                                                                    <td><i class="fa-solid fa-circle icon-stop"></i>Ngưng hoạt động</td>
                                                                                 
                                                                             </tr>
                                                                             <tr>
-                                                                            <td>KIO_01</td>
-                                                                                <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                                                
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>KIO_01</td>
-                                                                                <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                                                
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>KIO_01</td>
-                                                                                <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                                                
-                                                                            </tr>
                                                                         </tbody>
 
                                                                     </table>
@@ -277,7 +285,7 @@
                                         </div>
                                     </div>
                                     <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./dichvu/capnhatdichvu'"><i class="fa-solid fa-pen"></i>Cập nhật dịch vụ</button>
+                                        <button type="button" class="btn" onclick="window.location='./dichvu/capnhatdichvu/{{$service->id}}'"><i class="fa-solid fa-pen"></i>Cập nhật dịch vụ</button>
                                     </div>
 
                                 </div>

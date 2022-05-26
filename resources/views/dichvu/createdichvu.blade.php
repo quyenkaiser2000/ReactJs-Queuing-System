@@ -8,7 +8,7 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
                                                 <li class="breadcrumb-thietbi-item ">Dịch vụ</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách dịch vụ</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./dichvu">Danh sách dịch vụ</a></li>
                                                 <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Thêm dịch vụ</li>
                                         </ol>
                                     </nav>
@@ -17,7 +17,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -81,7 +81,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,8 @@
                             
                             
                             <div class="row br-detaildevice br-update-device">
-                                    <form>
+                                <form method="POST" action="/dichvu/themdichvu">
+                                        @csrf
                                         <div class="col-12 form-data" >
                                             <div class="detail-device">
                                                     <div class="row">
@@ -118,11 +119,11 @@
                                                                     <ul>
                                                                         <li class="update-device">
                                                                             <span>Mã dịch vụ:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="ma_service" value="201">
+                                                                            <input type="text" name="code_service" value="" required>
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Tên dịch vụ:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="name_service" value="Khám tim mạch">
+                                                                            <input type="text" name="name" value="" required>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -136,7 +137,7 @@
                                                                 <ul>
                                                                     <li class="update-device">
                                                                         <span>Mô tả:</span>
-                                                                        <textarea rows="" cols=""></textarea>
+                                                                        <textarea rows="" cols="" name="content"></textarea>
                                                                     </li>
                                                                 </ul>
                                                                 
@@ -155,15 +156,15 @@
                                                     <div class="row quitac-capso-service">
                                                         <div class="col-2">
                                                             <div class="checkbox-capsovervice">
-                                                                <input type="checkbox" id="up-auto" name="up-auto" value="">
+                                                                <input type="checkbox" id="up-auto" name="up_auto" value="1">
                                                                 <label for="up-auto">Tăng tự động từ:</label>
                                                             </div>
                                                             <div class="checkbox-capsovervice">
-                                                                <input type="checkbox" id="prefix" name="prefix" value="">
+                                                                <input type="checkbox" id="prefix" name="prefix" value="1">
                                                                 <label for="prefix">Prefix::</label>
                                                             </div>
                                                             <div class="checkbox-capsovervice">
-                                                                <input type="checkbox" id="surfix" name="surfix" value="">
+                                                                <input type="checkbox" id="surfix" name="surfix" value="1">
                                                                 <label for="surfix">Surfix:</label>
                                                             </div>
                                                             
@@ -180,7 +181,7 @@
                                                     </div>
                                                     <div class="row quitac-capso-service">
                                                             <div class="col-12 checkbox-capsovervice">
-                                                                <input type="checkbox" id="reset-day" name="reset-day" value="">
+                                                                <input type="checkbox" id="reset-day" name="reset_day" value="1">
                                                                 <label for="reset-day">Reset mỗi ngày:</label>
                                                             </div>
                                                     </div>

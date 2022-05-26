@@ -187,128 +187,33 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>192.168.1.10</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Mất kết nối</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                        <td><a href="#">Cập nhật</a></td>
-                                                        
-                                                    </tr>
+                                                    @foreach ($devices as $device)
+                                                        <tr>
+                                                            <td>{{$device->code_device}}</td>
+                                                            <td>{{$device->name}}</td>
+                                                            <td>{{$device->ip}}</td>
+                                                            @if($device->status_action == '1')
+                                                                <td><i class="fa-solid fa-circle icon-action"></i>Hoạt động</td>
+                                                            @else
+                                                                <td><i class="fa-solid fa-circle icon-stop"></i>Ngưng hoạt động</td>
+                                                            @endif
+                                                            @if($device->status_connect == '1')
+                                                                <td><i class="fa-solid fa-circle icon-action"></i>Kết nối</td>
+                                                            @else
+                                                                <td><i class="fa-solid fa-circle icon-stop"></i> Mất kết nối</td>
+                                                            @endif
+                                                            <td>Khám tim mạch</td>
+                                                            <td><a href="./thietbi/chitiet/{{$device->id}}">Chi tiết</a></td>
+                                                            <td><a href="./thietbi/capnhatthietbi/{{$device->id}}">Cập nhật</a></td>
+                                                            
+                                                        </tr>
+                                                    @endforeach
                                                         
                                                 </tbody>
 
                                             </table>
-                                            <div class='pagination-container' >
-                                                <nav>
-                                                    <ul class="pagination" style="float:right;">
-                                                        <li data-page="prev" >
-                                                            <span> < <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                        <li data-page="next" id="prev">
-                                                            <span> > <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
+                                            <div class="pagination-section mb-md-30 mb-sm-30">
+                                                {{$devices->links()}}
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">

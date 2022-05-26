@@ -16,15 +16,13 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('code_device');
-            $table->integer('service_id')->unsigned();
             $table->integer('device_category_id')->unsigned();
             $table->string('name');
             $table->string('ip');
             $table->string('namelogin');
             $table->string('pass');
-            $table->string('status-action');
-            $table->string('status-connect');
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->string('status_action');
+            $table->string('status_connect');
             $table->timestamps();
         });
     }

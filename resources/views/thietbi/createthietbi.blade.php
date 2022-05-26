@@ -17,7 +17,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -81,7 +81,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,8 @@
                             
                             
                             <div class="row br-detaildevice br-update-device">
-                                    <form>
+                                    <form method="POST" action="/thietbi/themthietbi">
+                                        @csrf
                                         <div class="col-12 form-data" >
                                             <div class="detail-device">
                                                     <div class="row">
@@ -118,15 +119,15 @@
                                                                     <ul>
                                                                         <li class="update-device">
                                                                             <span>Mã thiết bị:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="ma_device" value="KIO_01">
+                                                                            <input type="text" name="ma_device" value="" required>
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Tên thiết bị:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="name_device" value="Kiosk">
+                                                                            <input type="text" name="name_device" value="" required>
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Địa chỉ IP:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="ma_device" value="128.172.308">
+                                                                            <input type="text" name="ip_device" value="" required>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -138,45 +139,22 @@
                                                         <div class="col-6">
                                                             <div class="row">
                                                                 <ul>
-                                                                    <li class="update-device">
-                                                                        <div class="action">
-                                                                            <label for="">Trạng thái hoạt động</label>
-                                                                            <div class="wrapper-action">
-                                                                                <div class="jumbotron">  
-                                                                                    <label class="drop">
-                                                                                        <input type="checkbox" id="target-drop-example2"> 
-                                                                                        <span class="control">Tất cả</span> 
-
-                                                                                        <ul class="drop-items-action">
-                                                                                            <li class="item-drop">
-                                                                                            <span target="_blank"
-                                                                                                href="">Tất cả</span></li>
-                                                                                            <li class="item-drop">
-                                                                                            <span target="_blank"
-                                                                                                href="">Hoạt động</a></li>
-                                                                                            <li class="item-drop">
-                                                                                            <a target="_blank"
-                                                                                                href="">Ngưng hoạt động</a></li>
-                                                                                        </ul>
-
-                                                                                        <label for="target-drop-example" class="overlay-close"></label>
-
-                                                                                    </label>   
-
-                                                                                </div>
-
-                                                                                
-                                                                                </div>
-                                                                        </div>
+                                                                    <li class="update-device dropdown-updevice">
+                                                                        <span>Loại thiết bị:<i class="fa-solid fa-asterisk"></i></span>
+                                                                        <select class="js-example-basic-single" name="category_device" required>
+                                                                            @foreach($devicecategorys as $devicecategory)
+                                                                                <option>{{$devicecategory->name}}</option>
+                                                                            @endforeach
+                                                                        </select>
                                                                         
                                                                     </li>
                                                                     <li class="update-device">
                                                                         <span>Tên đăng nhập:<i class="fa-solid fa-asterisk"></i></span>
-                                                                        <input type="text" name="name_device" value="Linhkyo011">
+                                                                        <input type="text" name="name_login_device" value="" required>
                                                                     </li>
                                                                     <li class="update-device">
                                                                         <span>Mật khẩu:<i class="fa-solid fa-asterisk"></i></span>
-                                                                        <input type="text" name="ma_device" value="CMS">
+                                                                        <input type="text" name="pas_login_device" value="" required>
                                                                     </li>
                                                                 </ul>
                                                                 
@@ -186,9 +164,14 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <label for="" class="service-use-title">Dịch vụ sử dụng:<i class="fa-solid fa-asterisk"></i></label>
+                                                            
                                                         </div>
                                                         <div class="col-12">
-                                                            
+                                                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" required>
+                                                            @foreach($services as $service)
+                                                                <option>{{$service->name}}</option>
+                                                            @endforeach    
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="row note-updatedevice">
@@ -197,7 +180,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 form-submit">
-                                            <button type="button" class="btn-huy">Hủy bỏ</button>
+                                            <button type="button" class="btn-huy" onclick="window.location='./thietbi'" >Hủy bỏ</button>
                                             <button type="submit" class="btn-update">Thêm thiết bị</button>
                                         </div>
                                     </form>

@@ -99,7 +99,8 @@
                             
                             
                             <div class="row br-detaildevice br-update-device">
-                                    <form>
+                                    <form method="POST"  action="/thietbi/capnhatthietbi/{{$device->id}}">
+                                        @csrf
                                         <div class="col-12 form-data" >
                                             <div class="detail-device">
                                                     <div class="row">
@@ -118,15 +119,15 @@
                                                                     <ul>
                                                                         <li class="update-device">
                                                                             <span>Mã thiết bị:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="ma_device" value="KIO_01">
+                                                                            <input type="text" name="ma_device" value="{{$device->code_device}}">
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Tên thiết bị:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="name_device" value="Kiosk">
+                                                                            <input type="text" name="name_device" value="{{$device->name}}">
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Địa chỉ IP:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="ma_device" value="128.172.308">
+                                                                            <input type="text" name="ip" value="{{$device->ip}}">
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -139,44 +140,22 @@
                                                             <div class="row">
                                                                 <ul>
                                                                     <li class="update-device">
-                                                                        <div class="action">
-                                                                            <label for="">Trạng thái hoạt động</label>
-                                                                            <div class="wrapper-action">
-                                                                                <div class="jumbotron">  
-                                                                                    <label class="drop">
-                                                                                        <input type="checkbox" id="target-drop-example2"> 
-                                                                                        <span class="control">Tất cả</span> 
-
-                                                                                        <ul class="drop-items-action">
-                                                                                            <li class="item-drop">
-                                                                                            <span target="_blank"
-                                                                                                href="">Tất cả</span></li>
-                                                                                            <li class="item-drop">
-                                                                                            <span target="_blank"
-                                                                                                href="">Hoạt động</a></li>
-                                                                                            <li class="item-drop">
-                                                                                            <a target="_blank"
-                                                                                                href="">Ngưng hoạt động</a></li>
-                                                                                        </ul>
-
-                                                                                        <label for="target-drop-example" class="overlay-close"></label>
-
-                                                                                    </label>   
-
-                                                                                </div>
-
-                                                                                
-                                                                                </div>
-                                                                        </div>
+                                                                        <span>Loại thiết bị:<i class="fa-solid fa-asterisk"></i></span>
+                                                                        <select class="js-example-basic-single" name="category_device" required >
+                                                                            <option selected  value="">{{$device->deviceCategory->name}}</option>
+                                                                            @foreach($devicecategorys as $devicecategory)
+                                                                                <option value="{{$devicecategory->name}}">{{$devicecategory->name}}</option>
+                                                                            @endforeach
+                                                                        </select>
                                                                         
                                                                     </li>
                                                                     <li class="update-device">
                                                                         <span>Tên đăng nhập:<i class="fa-solid fa-asterisk"></i></span>
-                                                                        <input type="text" name="name_device" value="Linhkyo011">
+                                                                        <input type="text" name="namelogin" value="{{$device->namelogin}}">
                                                                     </li>
                                                                     <li class="update-device">
                                                                         <span>Mật khẩu:<i class="fa-solid fa-asterisk"></i></span>
-                                                                        <input type="text" name="ma_device" value="CMS">
+                                                                        <input type="text" name="pas" value="{{$device->pass}}">
                                                                     </li>
                                                                 </ul>
                                                                 
@@ -188,7 +167,11 @@
                                                             <label for="" class="service-use-title">Dịch vụ sử dụng:<i class="fa-solid fa-asterisk"></i></label>
                                                         </div>
                                                         <div class="col-12">
-                                                            
+                                                            <select class="js-example-basic-multiple" name="states[]" multiple="multiple" required>
+                                                                @foreach($services as $service)
+                                                                    <option>{{$service->name}}</option>
+                                                                @endforeach    
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="row note-updatedevice">
@@ -197,7 +180,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 form-submit">
-                                            <button type="button" class="btn-huy">Hủy bỏ</button>
+                                            <button type="button" class="btn-huy" onclick="window.location='./thietbi'">Hủy bỏ</button>
                                             <button type="submit" class="btn-update">Cập nhật</button>
                                         </div>
                                     </form>

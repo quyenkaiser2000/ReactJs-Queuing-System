@@ -45,10 +45,10 @@
                                             <h4 class="title">Đặt lại mật khẩu</h4>
                                             <label class="content">Vui lòng nhập email để đặt lại mật khẩu của bạn *</label>
                                             @if(session()->has('message'))
-                                            <p class="alert alert-success">
-                                                {{ session()->get('message') }}
-                                            </p>
-                                        @endif
+                                                <p class="alert alert-success">
+                                                    {{ session()->get('message') }}
+                                                </p>
+                                            @endif
                                             <input id="email" type="email" class="form-control" name="email"  required >
 
                                                 @error('email')

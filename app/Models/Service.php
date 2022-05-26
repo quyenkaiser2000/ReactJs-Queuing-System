@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
+    protected $table = 'services';
+    protected $primaryKey = 'id';
+    protected $guarded = [];
+
+    public function deviceDetails(){
+        return $this->hasMany(DeviceDetail::class, 'service_id','id');
+    }
 }

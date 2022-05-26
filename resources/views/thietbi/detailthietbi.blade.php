@@ -122,9 +122,9 @@
                                                             </div>
                                                             <div class="col-8">
                                                                 <ul>
-                                                                    <li><span>KIO_01</span></li>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>128.172.308</span></li>
+                                                                    <li><span>{{$device->code_device}}</span></li>
+                                                                    <li><span>{{$device->name}}</span></li>
+                                                                    <li><span>{{$device->ip}}</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -142,9 +142,9 @@
                                                             </div>
                                                             <div class="col-8">
                                                                 <ul>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>Linhkyo011</span></li>
-                                                                    <li><span>CMS</span></li>
+                                                                    <li><span>{{$device->deviceCategory->name}}</span></li>
+                                                                    <li><span>{{$device->namelogin}}</span></li>
+                                                                    <li><span>{{$device->pass}}</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -161,7 +161,7 @@
                                         </div>
                                     </div>
                                     <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/capnhatthietbi'"><i class="fa-solid fa-pen"></i>Cập nhật thiết bị</button>
+                                        <button type="button" class="btn" onclick="window.location='./thietbi/capnhatthietbi/{{$device->id}}'"><i class="fa-solid fa-pen"></i>Cập nhật thiết bị</button>
                                     </div>
 
                                 </div>

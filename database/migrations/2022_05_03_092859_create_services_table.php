@@ -18,7 +18,12 @@ class CreateServicesTable extends Migration
             $table->string('code_service');
             $table->string('name');
             $table->text('content');
-            $table->string('status')->nullable();
+            $table->string('status')->default(1);
+            $table->string('up_auto')->nullable();
+            $table->string('prefix')->nullable();
+            $table->string('surfix')->nullable();
+            $table->string('reset_day')->nullable();
+
 
             
             $table->timestamps();

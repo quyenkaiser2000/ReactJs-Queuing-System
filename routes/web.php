@@ -40,14 +40,18 @@ Route::get('/myprofile/{id}',[App\Http\Controllers\User\MyProfileController::cla
 Route::post('/myprofile/{id}',[App\Http\Controllers\User\MyProfileController::class, 'test']);
 
 Route::get('/thietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'index']);
-Route::get('/thietbi/chitiet',[App\Http\Controllers\Dashboard\DeviceController::class, 'detail']);
+Route::get('/thietbi/chitiet/{id}',[App\Http\Controllers\Dashboard\DeviceController::class, 'detail']);
 Route::get('/thietbi/themthietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'create']);
-Route::get('/thietbi/capnhatthietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'update']);
+Route::post('/thietbi/themthietbi',[App\Http\Controllers\Dashboard\DeviceController::class, 'createnew']);
+Route::get('/thietbi/capnhatthietbi/{id}',[App\Http\Controllers\Dashboard\DeviceController::class, 'edit']);
+Route::post('/thietbi/capnhatthietbi/{id}',[App\Http\Controllers\Dashboard\DeviceController::class, 'update']);
 
 Route::get('/dichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'index']);
 Route::get('/dichvu/themdichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'create']);
-Route::get('/dichvu/capnhatdichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'update']);
-Route::get('/dichvu/chitiet',[App\Http\Controllers\Dashboard\ServiceController::class, 'detail']);
+Route::post('/dichvu/themdichvu',[App\Http\Controllers\Dashboard\ServiceController::class, 'createnew']);
+Route::get('/dichvu/capnhatdichvu/{id}',[App\Http\Controllers\Dashboard\ServiceController::class, 'edit']);
+Route::post('/dichvu/capnhatdichvu/{id}',[App\Http\Controllers\Dashboard\ServiceController::class, 'update']);
+Route::get('/dichvu/chitiet/{id}',[App\Http\Controllers\Dashboard\ServiceController::class, 'detail']);
 
 
 Route::get('/capso',[App\Http\Controllers\Dashboard\CapsoController::class, 'index']);

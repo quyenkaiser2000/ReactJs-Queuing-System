@@ -16,7 +16,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -127,35 +127,7 @@
                                                 
                                                 </div>
                                         </div>
-                                        <div class="connect">
-                                            <label for="">Trạng thái kết nối</label>
-                                            <div class="wrapper-connect">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example1"> 
-                                                    <span class="control">Tất cả</span> 
-
-                                                    <ul class="drop-items-connect">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Kết nối</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Mất kết nối</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
-                                                </div>
-
-                                                
-                                                </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="search-key">
                                         <label for="">Từ khóa</label>
@@ -193,101 +165,28 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./dichvu/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./dichvu/capnhatdichvu">Cập nhật</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./dichvu/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./dichvu/capnhatdichvu">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./dichvu/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./dichvu/capnhatdichvu">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                    <td>KIO_01</td>
-                                                        <td>Kiosk</td>
-                                                        <td>Mô tả dịch vụ 1</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Hoạt động</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
+                                                    @foreach($services as $service)
+                                                        <tr>
+                                                            <td>{{$service->code_service}}</td>
+                                                            <td>{{$service->name}}</td>
+                                                            <td>{{$service->content}}</td>
+                                                            @if($service->status == '1')
+                                                                <td><i class="fa-solid fa-circle icon-action"></i>Hoạt động</td>
+                                                            @else
+                                                                <td><i class="fa-solid fa-circle icon-stop"></i>Ngưng hoạt động</td>
+                                                            @endif
+                                                            <td><a href="./dichvu/chitiet/{{$service->id}}">Chi tiết</a></td>
+                                                            <td><a href="./dichvu/capnhatdichvu/{{$service->id}}">Cập nhật</a></td>
+                                                        </tr>
+                                                    @endforeach
+
+                                                    
                                                         
                                                 </tbody>
 
                                             </table>
-                                            <div class='pagination-container' >
-                                                <nav>
-                                                    <ul class="pagination" style="float:right;">
-                                                        <li data-page="prev" >
-                                                            <span> < <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                        <li data-page="next" id="prev">
-                                                            <span> > <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
+                                            <div class="pagination-section mb-md-30 mb-sm-30">
+                                                {{$services->links()}}
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">
