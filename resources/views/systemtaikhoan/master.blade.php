@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://kit.fontawesome.com/dff14b3591.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"><!-- Main CSS -->
-	 <link href="front/style.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="front/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -255,6 +257,34 @@
         element.classList.remove("show");
     }
     });
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+
+        // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+    $(document).on('click','.toggle-password',function(){
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+            }
+       });
+       $(document).on('click','.toggle-password-enter',function(){
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+            }
+       });
 
 </script>
 

@@ -172,21 +172,10 @@
                                                 </tbody>
 
                                             </table>
-                                            <div class='pagination-container' >
-                                                <nav>
-                                                    <ul class="pagination" style="float:right;">
-                                                        <li data-page="prev" >
-                                                            <span> < <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                        <li data-page="next" id="prev">
-                                                            <span> > <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
+                                            
                                     </div>
                                     <div class=" col-1 btn-addthietbi">
-                                    <button type="button" class="btn" onclick="window.location='./thietbi/themthietbi'" ><i class="fa-light fa-plus"></i>Thêm vai trò</button>
+                                    <button type="button" class="btn" onclick="window.location='./system/vaitro/themvaitro'" ><i class="fa-light fa-plus"></i>Thêm vai trò</button>
                                     </div>
 
                                 </div>

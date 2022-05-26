@@ -130,7 +130,7 @@
                                         
                                     </div>
                                     <div class="search-key">
-                                        <label for="">Từ khóa</label>
+                                        <label for="">Chọn thời gian</label>
                                         <form>
                                             <input type="text" name="dates" />
                                             <button type="submit" value="search" >

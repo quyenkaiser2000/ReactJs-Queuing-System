@@ -246,7 +246,7 @@
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./thietbi/themthietbi'" ><i class="fa-light fa-plus"></i>Thêm tài khoản</button>
+                                        <button type="button" class="btn" onclick="window.location='./system/taikhoan/themtaikhoan'" ><i class="fa-light fa-plus"></i>Thêm tài khoản</button>
                                     </div>
 
                                 </div>

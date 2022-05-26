@@ -12,4 +12,8 @@ class NumberLevel extends Model
     protected $table = 'numberlevels';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function service(){
+        return $this->belongsTo(Service::class,'service_id','id');
+    }
 }

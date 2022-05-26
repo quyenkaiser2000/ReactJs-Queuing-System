@@ -56,12 +56,20 @@ Route::get('/dichvu/chitiet/{id}',[App\Http\Controllers\Dashboard\ServiceControl
 
 Route::get('/capso',[App\Http\Controllers\Dashboard\CapsoController::class, 'index']);
 Route::get('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'create']);
+Route::post('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'createnew']);
 Route::get('/capso/detailcapso',[App\Http\Controllers\Dashboard\CapsoController::class, 'detail']);
 
 Route::get('/baocao',[App\Http\Controllers\Dashboard\BaocaoController::class, 'index']);
 
 Route::get('/system/vaitro',[App\Http\Controllers\Dashboard\SystemVaitroController::class, 'index']);
+Route::get('/system/vaitro/themvaitro',[App\Http\Controllers\Dashboard\SystemVaitroController::class, 'create']);
+Route::post('/system/vaitro/themvaitro',[App\Http\Controllers\Dashboard\SystemVaitroController::class, 'createnew']);
+Route::get('/system/vaitro/capnhat/{id}',[App\Http\Controllers\Dashboard\SystemVaitroController::class, 'edit']);
+Route::post('/system/vaitro/capnhat/{id}',[App\Http\Controllers\Dashboard\SystemVaitroController::class, 'update']);
+
 Route::get('/system/taikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'index']);
+Route::get('/system/taikhoan/themtaikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'create']);
+
 Route::get('/system/nguoidung',[App\Http\Controllers\Dashboard\SystemNguoidungController::class, 'index']);
 
 

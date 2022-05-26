@@ -191,7 +191,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 form-submit">
-                                            <button type="button" class="btn-huy">Hủy bỏ</button>
+                                            <button type="button" class="btn-huy" onclick="window.location='./dichvu'">Hủy bỏ</button>
                                             <button type="submit" class="btn-update">Thêm dịch vụ</button>
                                         </div>
                                     </form>

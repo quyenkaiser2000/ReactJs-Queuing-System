@@ -101,48 +101,26 @@
                             <div class="row br-detaildevice br-update-device In-so">
                                     <div class="col-12">
                                         <div class="form-inso">
-                                            <form>
-                                            <div class="col-12">
-                                                <div class="title-capso">
-                                                    <span>CẤP SỐ MỚI</span>
+                                            <form method="POST" action="/capso/capsomoi">
+                                                @csrf
+                                                <div class="col-12">
+                                                    <div class="title-capso">
+                                                        <span>CẤP SỐ MỚI</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="action" >
-                                                        <label for="" class="title-inso">Dịch vụ khách hàng lựa chọn</label>
-                                                        <div class="wrapper-action">
-                                                            <div class="jumbotron">  
-                                                                <label class="drop">
-                                                                <input type="checkbox" id="target-drop-example2"> 
-                                                                <span class="control">Chọn dịch vụ</span> 
-
-                                                                <ul class="drop-items-action">
-                                                                    <li class="item-drop">
-                                                                    <a target="_blank"
-                                                                        href="">Khám tim mạch</a></li>
-                                                                    <li class="item-drop">
-                                                                    <a target="_blank"
-                                                                        href="">Khám tai mũi họng</a></li>
-                                                                    <li class="item-drop">
-                                                                    <a target="_blank"
-                                                                        href="">Khám răng hàm mặt</a></li>
-                                                                </ul>
-
-                                                                <label for="target-drop-example" class="overlay-close"></label>
-
-                                                                </label>   
-
-                                                            </div>
-
-                                                            
-                                                        </div>
+                                                <div class="col-12">
+                                                            <label for="" class="title-inso">Dịch vụ khách hàng lựa chọn</label>
+                                                            <select class="js-example-basic-single select" name="category_device" required>
+                                                                @foreach($services as $service)
+                                                                    <option>{{$service->name}}</option>
+                                                                @endforeach
+                                                            </select>
                                                 </div>
-                                            </div>
-                                            <div class="col-12 form-submit">
-                                                <button type="button" class="btn-huy">Hủy bỏ</button>
-                                                <button type="button" class="btn-update">In số</button>
-                                            </div>
-                                        </form>
+                                                <div class="col-12 form-submit">
+                                                    <button type="button" class="btn-huy" onclick="window.location='./capso'">Hủy bỏ</button>
+                                                    <button type="submit" class="btn-update">In số</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
 

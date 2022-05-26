@@ -21,7 +21,16 @@ class RoleSeeder extends Seeder
             'name' => 'Kế toán',
         ]);
         Role::create([
+            'name' => 'Bác sĩ',
+        ]);
+        Role::create([
+            'name' => 'Lễ tân',
+        ]);
+        Role::create([
             'name' => 'Quản lý',
+        ]);
+        Role::create([
+            'name' => 'SuperAdmin',
         ]);
     }
 }

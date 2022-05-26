@@ -16,14 +16,13 @@ class CreateNumberlevelsTable extends Migration
         Schema::create('numberlevels', function (Blueprint $table) {
             $table->id();
             $table->integer('service_id')->unsigned();
-            $table->integer('nguoncap_id')->unsigned();
             $table->string('name');
             $table->string('stt');
             $table->string('phone');
             $table->string('email');
             $table->datetime('start_day');
             $table->datetime('end_day');
-
+            $table->integer('nguoncap');
             $table->string('status')->nullable();
             $table->timestamps();
         });

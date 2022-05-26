@@ -256,7 +256,7 @@
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./capso/capsomoi'" ><i class="fa-solid fa-download"></i>Tải về</button>
+                                        <button type="button" class="btn" ><i class="fa-solid fa-download"></i>Tải về</button>
                                     </div>
 
                                 </div>

@@ -1,5 +1,5 @@
-@extends('dichvu.master')
-@section('title','Cập nhật dịch vụ')
+@extends('systemtaikhoan.master')
+@section('title','Thêm tài khoản')
 @section('body')
             <div class="col-10 br-thietbi" >
                     <div class="content">
@@ -7,13 +7,9 @@
                                 <div class="">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
-                                                <li class="breadcrumb-thietbi-item ">Dịch vụ</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./dichvu">Danh sách dịch vụ</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./dichvu/chitiet/{{$service->id}}">Chi tiết</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="">Cập nhật</a></li>
-
-
-
+                                                <li class="breadcrumb-thietbi-item ">Thiết bị</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách thiết bị</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Thêm thiết bị</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -94,7 +90,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="title-dsthietbi">
-                                        <span>Quản lý dịch vụ</span>
+                                        <span>Quản lý thiết bị</span>
                                     </div>
                                 </div>
                                     
@@ -103,7 +99,7 @@
                             
                             
                             <div class="row br-detaildevice br-update-device">
-                                <form method="POST" action="/dichvu/capnhatdichvu/{{$service->id}}">
+                                    <form method="POST" action="/thietbi/themthietbi">
                                         @csrf
                                         <div class="col-12 form-data" >
                                             <div class="detail-device">
@@ -111,7 +107,7 @@
                                                         <div class="col-12">
                                                             <div class="title-detailthietbi">
                                                                 <h4>
-                                                                    Thông tin dịch vụ
+                                                                    Thông tin thiết bị
                                                                 </h4>
                                                             </div>
                                                         </div>
@@ -120,15 +116,28 @@
                                                         <div class="col-6">
                                                             <div class="row">
                                                                 <div class="col-12">
-                                                                    <ul>
+                                                                    <ul class="system-taikhoan">
                                                                         <li class="update-device">
-                                                                            <span>Mã dịch vụ:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="code_service" value="{{$service->code_service}}">
+                                                                            <span>Họ tên:<i class="fa-solid fa-asterisk"></i></span>
+                                                                            <input type="text" name="hoten" value="" required placeholder="Nhập họ tên">
                                                                         </li>
                                                                         <li class="update-device">
-                                                                            <span>Tên dịch vụ:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="name" value="{{$service->name}}">
+                                                                            <span>Số điện thoại:<i class="fa-solid fa-asterisk"></i></span>
+                                                                            <input type="text" name="sdt" value="" required placeholder="Nhập số điện thoại">
                                                                         </li>
+                                                                        <li class="update-device">
+                                                                            <span>Email:<i class="fa-solid fa-asterisk"></i></span>
+                                                                            <input type="email" name="email" value="" required placeholder="Nhập email">
+                                                                        </li>
+                                                                        <li class="update-device dropdown-updevice">
+                                                                            <span>Vai trò:<i class="fa-solid fa-asterisk"></i></span>
+                                                                            <select class="js-example-basic-single" name="role" required>
+                                                                                @foreach($roles as $role)
+                                                                                    <option>{{$role->name}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        
+                                                                    </li>
                                                                     </ul>
                                                                 </div>
                                                                 
@@ -136,85 +145,58 @@
                                                         
                                                         
                                                         </div>
-                                                        <div class="col-6 textarea-service">
-                                                            <div class="row" style="width:100%;">
-                                                                <ul>
+                                                        <div class="col-6">
+                                                            <div class="row">
+                                                                <ul class="system-taikhoan">
+                                                                    
                                                                     <li class="update-device">
-                                                                        <span>Mô tả:</span>
-                                                                        <textarea rows="" cols="" name="content">{{$service->content}}</textarea>
+                                                                        <span>Tên đăng nhập:<i class="fa-solid fa-asterisk"></i></span>
+                                                                        <input type="text" name="name_login_device" value="" placeholder="Nhập tên đăng nhập" required>
+                                                                    </li>
+                                                                    <li class="update-device">
+                                                                        <label class="pas">Mật khẩu *</label>
+                                                                        <div  id="show_hide_password">
+                                                                            <input id="password" type="password" placeholder="Mật khẩu" name="password" required >
+                                                                                
+                                                                                <div class="input-group-addon">
+                                                                                    <span toggle="#password" class="far fa-fw fa-eye field-icon toggle-password-enter"></span>
+                                                                                </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="update-device">
+                                                                        <label class="pas">Nhập lại mật khẩu *</label>
+                                                                        <div  id="show_hide_password">
+                                                                            <input id="password-field-enter" type="password" placeholder="Nhập lại mật khẩu" name="password-enter" required >
+                                                                                
+                                                                                <div class="input-group-addon">
+                                                                                    <span toggle="#password-field-enter" class="far fa-fw fa-eye field-icon toggle-password-enter"></span>
+                                                                                </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="update-device dropdown-updevice">
+                                                                        <span>Tình trạng:<i class="fa-solid fa-asterisk"></i></span>
+                                                                        <select class="js-example-basic-single" name="category_device" required>
+                                                                            
+                                                                                <option>Tất cả</option>
+                                                                                <option>Ngưng hoạt động</option>
+                                                                                <option>Hoạt động</option>
+                                                                        </select>
+                                                                        
                                                                     </li>
                                                                 </ul>
                                                                 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row ">
-                                                        <div class="col-12">
-                                                            <div class="title-detailthietbi">
-                                                                <h4>
-                                                                    Quy tắc cấp số
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row quitac-capso-service">
-                                                        <div class="col-2">
-                                                            <div class="checkbox-capsovervice">
-                                                                @if($service->up_auto == '1')
-                                                                    <input type="checkbox" id="up-auto" name="up_auto" value="1" checked>
-                                                                @else
-                                                                    <input type="checkbox" id="up-auto" name="up_auto" value="1">
-                                                                @endif
-                                                                <label for="up-auto">Tăng tự động từ:</label>
-                                                            </div>
-                                                            <div class="checkbox-capsovervice">
-                                                                @if($service->prefix == '1')
-                                                                    <input type="checkbox" id="prefix" name="prefix" value="1" checked>
-                                                                @else
-                                                                    <input type="checkbox" id="prefix" name="prefix" value="1">
-                                                                @endif
-                                                                <label for="prefix">Prefix::</label>
-                                                            </div>
-                                                            <div class="checkbox-capsovervice">
-                                                                @if($service->surfix == '1')
-                                                                    <input type="checkbox" id="surfix" name="surfix" value="1" checked>
-                                                                @else
-                                                                    <input type="checkbox" id="surfix" name="surfix" value="1">
-                                                                @endif
-                                                                
-                                                                <label for="surfix">Surfix:</label>
-                                                            </div>
-                                                            
-                                                            
-                                                            
-                                                           
-                                                        </div>
-                                                        <div class="col-4 div_number">
-                                                            <label for="up-auto"><span class="number-auto-up">0001</span><span> đến </span><span class="number-auto-up">9999</span></label>
-                                                            <label for="prefix"><span class="number-auto-up">0001</span> </label>
-                                                            <label for="surfix"><span class="number-auto-up">0001</span> </label>
-                                                        </div>
- 
-                                                    </div>
-                                                    <div class="row quitac-capso-service">
-                                                            <div class="col-12 checkbox-capsovervice">
-                                                                @if($service->reset_day == '1')
-                                                                    <input type="checkbox" id="reset_day" name="reset_day" value="1" checked>
-                                                                @else
-                                                                    <input type="checkbox" id="reset-day" name="reset_day" value="1">
-
-                                                                @endif
-                                                                <label for="reset-day">Reset mỗi ngày:</label>
-                                                            </div>
-                                                    </div>
+                                                    
                                                     <div class="row note-updatedevice">
                                                         <span><i class="fa-solid fa-asterisk"></i> Là trường thông tin bắt buộc</span>
                                                     </div>
                                             </div>
                                         </div>
                                         <div class="col-12 form-submit">
-                                            <button type="button" class="btn-huy" onclick="window.location='./dichvu'">Hủy bỏ</button>
-                                            <button type="submit" class="btn-update">Cập nhật</button>
+                                            <button type="button" class="btn-huy" onclick="window.location='./thietbi'" >Hủy bỏ</button>
+                                            <button type="submit" class="btn-update">Thêm thiết bị</button>
                                         </div>
                                     </form>
 
