@@ -20,9 +20,9 @@ class CreateNumberlevelsTable extends Migration
             $table->string('stt');
             $table->string('phone');
             $table->string('email');
-            $table->datetime('start_day');
-            $table->datetime('end_day');
-            $table->integer('nguoncap');
+            $table->string('start_day');
+            $table->string('end_day');
+            $table->string('nguoncap');
             $table->string('status')->nullable();
             $table->timestamps();
         });

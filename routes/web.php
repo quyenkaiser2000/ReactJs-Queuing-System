@@ -57,7 +57,8 @@ Route::get('/dichvu/chitiet/{id}',[App\Http\Controllers\Dashboard\ServiceControl
 Route::get('/capso',[App\Http\Controllers\Dashboard\CapsoController::class, 'index']);
 Route::get('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'create']);
 Route::post('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'createnew']);
-Route::get('/capso/detailcapso',[App\Http\Controllers\Dashboard\CapsoController::class, 'detail']);
+
+Route::get('/capso/detailcapso/{id}',[App\Http\Controllers\Dashboard\CapsoController::class, 'detail']);
 
 Route::get('/baocao',[App\Http\Controllers\Dashboard\BaocaoController::class, 'index']);
 

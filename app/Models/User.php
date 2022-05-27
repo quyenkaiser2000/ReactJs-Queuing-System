@@ -52,4 +52,7 @@ class User extends Authenticatable
     public function role() {
         return $this->belongsTo('App\Models\Role');
     }
+    public function userdiarys(){
+        return $this->hasMany(UserDiary::class, 'user_id','id');
+    }
 }

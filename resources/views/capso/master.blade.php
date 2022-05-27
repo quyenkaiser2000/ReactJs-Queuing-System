@@ -259,7 +259,12 @@
     $(document).on('click','.btn-update',function(){
         
         var element = document.getElementById("test");
+        
+    
         element.classList.add("test1");
+
+
+        
         element.classList.remove("test2");
 
     });

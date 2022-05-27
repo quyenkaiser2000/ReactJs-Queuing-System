@@ -20,9 +20,9 @@ class ServiceSeeder extends Seeder
             'content' => 'Chuyên các bệnh lý về tim',
             'status' => '1',
             'up_auto' => '1',
-            'prefix' => '1',
-            'surfix' => '1',
-            'reset_day' => '1',
+            'prefix' => '0',
+            'surfix' => '0',
+            'reset_day' => '0',
         ]);
         Service::create([
             'code_service' => '202',

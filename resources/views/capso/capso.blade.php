@@ -216,93 +216,32 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Lê Ái Vân</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td>14:35 - 12/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                        <td><a href="./capso/detailcapso">Chi tiết</a></td>
-                                                    </tr>
+                                                    @foreach($numberlevels as $numberlevel)
+                                                        <tr>
+                                                            <td>{{$numberlevel->stt}}</td>
+                                                            <td>{{$numberlevel->name}}</td>
+                                                            <td>{{$numberlevel->service->name}}</td>
+                                                            <td>{{$numberlevel->start_day}}</td>
+                                                            <td>{{$numberlevel->end_day}}</td>
+                                                            @if($numberlevel->status == '1')
+                                                                <td><i class="fa-solid fa-circle icon-wait"></i>Đang chờ</td>
+                                                            @endif
+                                                            @if($numberlevel->status == '2')
+                                                                <td><i class="fa-solid fa-circle icon-dasudung"></i>Đã sử dụng</td>
+                                                            @endif
+                                                            @if($numberlevel->status == '3')
+                                                                <td><i class="fa-solid fa-circle icon-stop"></i>Bỏ qua</td>
+                                                            @endif
+                                                            <td>{{$numberlevel->nguoncap}}</td>
+                                                            <td><a href="./capso/detailcapso/{{$numberlevel->id}}">Chi tiết</a></td>
+                                                        </tr>
+                                                    @endforeach
                                                     
-                                                    
-                                                        
                                                 </tbody>
 
                                             </table>
-                                            <div class='pagination-container' >
-                                                <nav>
-                                                    <ul class="pagination" style="float:right;">
-                                                        <li data-page="prev" >
-                                                            <span> < <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                        <li data-page="next" id="prev">
-                                                            <span> > <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
+                                            <div class="pagination-section mb-md-30 mb-sm-30">
+                                                {{$numberlevels->links()}}
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">

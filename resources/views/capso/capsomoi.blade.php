@@ -101,7 +101,7 @@
                             <div class="row br-detaildevice br-update-device In-so">
                                     <div class="col-12">
                                         <div class="form-inso">
-                                            <form method="POST" action="/capso/capsomoi">
+                                            <form method="POST" action="capso/capsomoi">
                                                 @csrf
                                                 <div class="col-12">
                                                     <div class="title-capso">
@@ -130,15 +130,18 @@
                             
                     </div>
             </div>
-            <div class="test" id="test" >
-                <span><i class="fa-solid fa-xmark exit-inso" id=""></i></span>
-                <span>Số thứ tự được cấp</span>
-                <span>2001201</span>
-                <span>DV: Khám răng hàm mặt <span class="capso-quay">(tại quầy số 1)</span></span>
-                <div class="time-capso">
-                    <span>Thời gian cấp: 09:30 11/10/2021</span>
-                    <span>Hạn sử dụng:: 17:30 11/10/2021</span>
+            @if($numberlevel != null)
+                <div class="test" id="test" >
+                    <span><i class="fa-solid fa-xmark exit-inso" id=""></i></span>
+                    <span>Số thứ tự được cấp</span>
+                    <span>{{$numberlevel->stt}}</span>
+                    <span>DV: {{$numberlevel->service->name}} <span class="capso-quay">(tại quầy số 1)</span></span>
+                    <div class="time-capso">
+                        <span>Thời gian cấp: {{$numberlevel->start_day}}</span>
+                        <span>Hạn sử dụng:: {{$numberlevel->end_day}}</span>
+                    </div>
                 </div>
-            </div>
+            
+            @endif
             
 @endsection

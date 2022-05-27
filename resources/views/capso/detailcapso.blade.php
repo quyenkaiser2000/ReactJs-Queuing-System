@@ -8,7 +8,7 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
                                                 <li class="breadcrumb-thietbi-item ">Cấp số</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách cấp số</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./capso">Danh sách cấp số</a></li>
                                                 <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết</li>
                                         </ol>
                                     </nav>
@@ -124,11 +124,11 @@
                                                             </div>
                                                             <div class="col-8">
                                                                 <ul>
-                                                                    <li><span>Nguyễn Thị Dung</span></li>
-                                                                    <li><span>Khám tim mạch</span></li>
-                                                                    <li><span>2001201</span></li>
-                                                                    <li><span>14:35 - 07/11/2021</span></li>
-                                                                    <li><span>18:00 - 07/11/2021</span></li>
+                                                                    <li><span>{{$numberlevel->name}}</span></li>
+                                                                    <li><span>{{$numberlevel->service->name}}</span></li>
+                                                                    <li><span>{{$numberlevel->stt}}</span></li>
+                                                                    <li><span>{{$numberlevel->start_day}}</span></li>
+                                                                    <li><span>{{$numberlevel->end_day}}</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -142,15 +142,23 @@
                                                                     <li><span>Nguồn cấp:</span></li>
                                                                     <li><span>Trạng thái:</span></li>
                                                                     <li><span>Số điện thoại:</span></li>
-                                                                    <li><span>Địa chỉ Email::</span></li>
+                                                                    <li><span>Địa chỉ Email:</span></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-8">
                                                                 <ul>
-                                                                    <li><span>Kiosk</span></li>
-                                                                    <li><span>Đang chờ</span></li>
-                                                                    <li><span>0948523623</span></li>
-                                                                    <li><span>nguyendung@gmail.com</span></li>
+                                                                    <li><span>{{$numberlevel->nguoncap}}</span></li>
+                                                                    @if($numberlevel->status == '1')
+                                                                        <li><span><i class="fa-solid fa-circle icon-wait"></i>Đang chờ</span></li>
+                                                                    @endif
+                                                                    @if($numberlevel->status == '2')
+                                                                        <li><span><i class="fa-solid fa-circle icon-dasudung"></i>Đã sử dụng</span></li>
+                                                                    @endif
+                                                                    @if($numberlevel->status == '3')
+                                                                        <li><span><i class="fa-solid fa-circle icon-stop"></i>Bỏ qua</span></li>
+                                                                    @endif
+                                                                    <li><span>{{$numberlevel->phone}}</span></li>
+                                                                    <li><span>{{$numberlevel->email}}</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>

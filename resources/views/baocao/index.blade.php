@@ -167,92 +167,30 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2010001</td>
-                                                        <td>Khám tim mạch</td>
-                                                        <td>14:35 - 07/11/2021</td>
-                                                        <td><i class="fa-solid fa-circle"></i>Đang chờ</td>
-                                                        <td>Kiosk</td>
-                                                    </tr>
+                                                    @foreach($baocaos as $baocao)
+                                                        <tr>
+                                                            <td>{{$baocao->stt}}</td>
+                                                            <td>{{$baocao->service->name}}</td>
+                                                            <td>{{$baocao->start_day}}</td>
+                                                            @if($baocao->status == '1')
+                                                                <td><i class="fa-solid fa-circle icon-wait"></i>Đang chờ</td>
+                                                            @endif
+                                                            @if($baocao->status == '2')
+                                                                <td><i class="fa-solid fa-circle icon-dasudung"></i>Đã sử dụng</td>
+                                                            @endif
+                                                            @if($baocao->status == '3')
+                                                                <td><i class="fa-solid fa-circle icon-stop"></i>Bỏ qua</td>
+                                                            @endif
+                                                            <td>{{$baocao->nguoncap}}</td>
+                                                        </tr>
+                                                    @endforeach
                                                     
                                                         
                                                 </tbody>
 
                                             </table>
-                                            <div class='pagination-container' >
-                                                <nav>
-                                                    <ul class="pagination" style="float:right;">
-                                                        <li data-page="prev" >
-                                                            <span> < <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                        <li data-page="next" id="prev">
-                                                            <span> > <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
+                                            <div class="pagination-section mb-md-30 mb-sm-30">
+                                                {{$baocaos->links()}}
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">

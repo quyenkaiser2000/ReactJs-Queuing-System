@@ -1828,3 +1828,18 @@ html, body {
 .grib-search >div:nth-child(1){
     margin-right:24px;
 }
+.icon-wait {
+    font-size: 10px;
+    color: #4277FF;
+    margin-right: 5px;
+}
+.icon-dasudung {
+    font-size: 10px;
+    color: #7E7D88;
+    margin-right: 5px;
+}
+.icon-boqua {
+    font-size: 10px;
+    color: green;
+    margin-right: 5px;
+}
