@@ -7,11 +7,41 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Service;
+use Carbon\Carbon;
 class ServiceController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $useravatar = User::find(Auth::user()->id);
-        $services =  Service::paginate(5);
+        
+        $action = $request->action ?? 2;
+        $search = $request->search ?? '';
+
+
+        
+        
+
+
+
+
+        if($action != '2'){
+            $services = Service::select('id','code_service','name','content','status')->where('status', $action)->paginate(9);
+        }
+        if($action == '2'){
+            $services = Service::paginate(9);
+            
+        }
+        if($search != ''){
+            $services = Service::select('id','code_service','name','content','status')->where('name','like','%'. $search .'%')->paginate(9);
+        }
+        if($request->dates != null){
+            $ex_dates = explode(" - ",$request->dates);
+
+            $services = Service::select('id','code_service','name','content','status')
+            ->whereBetween('created_at', [$ex_dates[0], $ex_dates[1]])
+            ->paginate(9);
+
+        }
+        $services->appends(['action' => $action]);
         return view('dichvu.dichvu',compact('useravatar','services'));
     }
     public function create(){
@@ -20,8 +50,11 @@ class ServiceController extends Controller
     }
     public function createnew(Request $request){
         
-        $data = $request->all();
+       $data = $request->all();
         Service::create($data);
+        $service->save();
+
+
         return redirect()->back();
     }
     public function edit($id){

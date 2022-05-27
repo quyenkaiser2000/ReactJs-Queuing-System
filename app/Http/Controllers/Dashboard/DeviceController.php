@@ -10,17 +10,74 @@ use App\Models\User;
 use App\Models\DeviceCategory;
 use App\Models\DeviceDetail;
 use DB;
-
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class DeviceController extends Controller
 {
-    public function index(){
-        $devices =  Device::paginate(5);
-       /* $devicedetails = DeviceDetail::select('device_id', DB::raw("CONCAT(service_id) as total_sales"))->groupBy('device_id')->get();*/
+    public function index(Request $request){
+        $action = $request->action ?? 2;
+        $connect = $request->connect ?? 2;
+        $search = $request->search ?? '';
+
         
+        
+        if($action == '2' && $connect != '2'){
+            $devices = Device::select('id','code_device','name','ip','status_action','status_connect')
+            ->where('status_connect', $action)->paginate(9);
+        }
+        if($connect == '2' && $action != '2')
+        {
+            $devices = Device::select('id','code_device','name','ip','status_action','status_connect')
+            ->where('status_action', $action)->paginate(9);
+        }
+        if($action != '2' && $connect != '2'){
+            $devices = Device::select('id','code_device','name','ip','status_action','status_connect')
+            ->where('status_action', $action)->where('status_connect',$connect)->paginate(9);
+        }
+
+        
+        if($action == '2' && $connect == '2'){
+            $devices = Device::paginate(9);
+        }
+        $devices = Device::select('id','code_device','name','ip','status_action','status_connect')->where('name','like','%'. $search .'%')->paginate(9);
+        
+        
+        $devices->appends(['action' => $action,'connect' => $connect]);
         return view('thietbi.thietbi',compact('devices'));
     }
+    
+
+    public function actionconnect($devices,$action,$connect){
+        switch ($sortby){
+          case 1:
+            $products = $products->orderBy('id');
+            break;
+          case 2:
+            $products = $products->orderBy('name');
+            break;
+          case 3:
+            $products = $products->orderBy('price');
+            break;
+          case 4:
+            $products = $products->orderByDesc('price');
+            break;
+          default:
+            $products = $products->orderBy('id');
+        }
+  
+  
+  
+  
+        $products = $products->paginate($perpage);
+  
+        $products->appends(['sort_by' => $sortby,'show' => $perpage]);
+  
+        return $products;
+    }
+
+
+
     public function detail($id){
         $device =  Device::findOrFail($id);
 

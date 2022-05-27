@@ -1817,3 +1817,14 @@ html, body {
     max-width: 540px !important;
     width: 100% !important;
 }
+
+.grib-search{
+    display: flex !important;
+    
+}
+.grib-search .select2-container{
+    width: 300px !important;
+}
+.grib-search >div:nth-child(1){
+    margin-right:24px;
+}

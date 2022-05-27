@@ -98,73 +98,42 @@
                             <div class="row">
                                 <div class="col-11 search">
                                     <div class="status">
-                                        <div class="action">
-                                            <label for="">Trạng thái hoạt động</label>
-                                            <div class="wrapper-action">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example2"> 
-                                                    <span class="control">Tất cả</span> 
-
-                                                    <ul class="drop-items-action">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Hoạt động</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Ngưng hoạt động</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
+                                        <form class="action grib-search" action="">
+                                                <div>
+                                                    <label for="">Trạng thái hoạt động</label>
+                                                    <div>
+                                                        <select class="js-example-basic-single dropdown-search" name="action" onchange="this.form.submit();" required>
+                                                            
+                                                            <option value="2" {{ request('action') == '2' ? 'selected' : ''}}>Tất cả</option>
+                                                            <option value="1" {{ request('action') == '1' ? 'selected' : ''}}>Hoạt động</option>
+                                                            <option value="0" {{ request('action') == '0' ? 'selected' : ''}}>Ngưng Hoạt động</option>
+                                                    
+                                                        </select>
+                                                    </div>
                                                 </div>
-
+                                                <div>
+                                                    <label for="">Trạng thái kết nối</label>
+                                                    <div>
+                                                        <select class="js-example-basic-single dropdown-search" name="connect" onchange="this.form.submit();" required>
                                                 
-                                                </div>
-                                        </div>
-                                        <div class="connect">
-                                            <label for="">Trạng thái kết nối</label>
-                                            <div class="wrapper-connect">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example1"> 
-                                                    <span class="control">Tất cả</span> 
-
-                                                    <ul class="drop-items-connect">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Kết nối</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Mất kết nối</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
-                                                </div>
-
+                                                        <option value="2" {{ request('connect') == '2' ? 'selected' : ''}}>Tất cả</option>
+                                                        <option value="1" {{ request('connect') == '1' ? 'selected' : ''}}>Kết nối</option>
+                                                        <option value="0" {{ request('connect') == '0' ? 'selected' : ''}}>Mất kết nối</option>
                                                 
+                                                    </select>
+                                                    </div>
                                                 </div>
-                                        </div>
+                                                
+                                        </form>
                                     </div>
                                     <div class="search-key">
                                         <label for="">Từ khóa</label>
-                                        <form>
+                                        <form action="/thietbi">
                                             <input 
-                                                    type="text" plaseholder:"search">
+                                                type="text" name="search" placeholder="" value="{{request('search')}}">
                                             </input>
                                             <button type="submit" value="search" >
-                                                <i class="fa fa-search" aria-hidden="true"></i> 
+                                                <i class="fa fa-search" aria-hidden="true"></i>     
                                         </form>
                                     </div>
                                 </div>
