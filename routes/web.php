@@ -16,6 +16,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 Route::get('/', function () {
     return view('login/login');
 });
+
+Route::get('/register-user', [App\Http\Controllers\Auth\RegisterUserController::class, 'index']);
+Route::post('/register-user', [App\Http\Controllers\Auth\RegisterUserController::class, 'create']);
+
 Route::get('/send-mail', function () {
     return view('login/email');
 });
@@ -30,7 +34,7 @@ Route::post('reset-password/{token}', [App\Http\Controllers\ResetPasswordControl
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::post('logout-user',[App\Http\Controllers\SessionsController::class, 'out']);
 
 Route::get('/dashboard',[App\Http\Controllers\Dashboard\DashboardController::class, 'index']);
@@ -58,6 +62,9 @@ Route::get('/capso',[App\Http\Controllers\Dashboard\CapsoController::class, 'ind
 Route::get('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'create']);
 Route::post('/capso/capsomoi',[App\Http\Controllers\Dashboard\CapsoController::class, 'createnew']);
 
+Route::get('/capso/capsomoi_user',[App\Http\Controllers\Dashboard\CapsoController::class, 'create_user']);
+Route::post('/capso/capsomoi_user',[App\Http\Controllers\Dashboard\CapsoController::class, 'createnew_user']);
+
 Route::get('/capso/detailcapso/{id}',[App\Http\Controllers\Dashboard\CapsoController::class, 'detail']);
 
 Route::get('/baocao',[App\Http\Controllers\Dashboard\BaocaoController::class, 'index']);
@@ -70,6 +77,9 @@ Route::post('/system/vaitro/capnhat/{id}',[App\Http\Controllers\Dashboard\System
 
 Route::get('/system/taikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'index']);
 Route::get('/system/taikhoan/themtaikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'create']);
+Route::post('/system/taikhoan/themtaikhoan',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'createnew']);
+Route::get('/system/taikhoan/capnhat/{id}',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'edit']);
+Route::post('/system/taikhoan/capnhat/{id}',[App\Http\Controllers\Dashboard\SystemTaikhoanController::class, 'update']);
 
 Route::get('/system/nguoidung',[App\Http\Controllers\Dashboard\SystemNguoidungController::class, 'index']);
 

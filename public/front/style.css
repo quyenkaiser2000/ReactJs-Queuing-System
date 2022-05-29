@@ -103,6 +103,7 @@ a:link , a:active, a:visited{
     margin-top: 19px;
     width:162px;
     margin-left: 121px;
+    justify-content: space-around;
 }
 .login div.sign-in #signin{
     
@@ -112,8 +113,7 @@ a:link , a:active, a:visited{
     line-height: 24px;
     font-weight: 700;
     font-style: normal;
-    width:162px;
-    height: 40px;
+    padding: 10px 12px;
 }
 .login div.sign-in #submit{
     
@@ -335,7 +335,7 @@ a:link , a:active, a:visited{
     font-weight: 700;
     line-height: 36px;
     color: #FF7506;
-    margin-top:40px;
+    margin-top:20px;
     margin-left: 24px;
  }
  .left-sidebar .content .title-chart-capso{
@@ -1842,4 +1842,124 @@ html, body {
     font-size: 10px;
     color: green;
     margin-right: 5px;
+}
+.capso-search .grib-search .select2-container{
+    width: 154px !important;
+}
+.capso-search .search-key input{
+    width: 250px !important;
+}
+.dashboard-chiso >div{
+    width: 160px !important;
+}
+.table-dichvu-detail .grib-search .select2-container{
+    width: 160px !important;
+    margin-right: -45px;
+}
+.icon-thuchien{
+    font-size: 10px;
+    color: blue;
+    margin-right: 5px;
+}
+.icon-vang{
+    font-size: 10px;
+    color: grey;
+    margin-right: 5px;
+}
+.icon-sidebar{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.chart-capso span{
+    margin-left:45px !important;
+    color:green;
+}
+.chart-service span{
+    color:blue;
+}
+
+
+
+
+.calendar-chart .calendar {
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: auto;
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    border-radius: 12px;
+}
+
+.calendar-chart .calendar h1 {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.calendar-chart .info {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.calendar-chart .info p {
+    font-size: 1.calendar-chart .5rem;
+    font-weight: 600;
+}
+
+.calendar-chart .date {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 28px;
+}
+
+.calendar-chart .day,
+.calendar-chart .day-name {
+    width: 52px;
+    height: 34px;
+    font-size: 1.calendar-chart .5rem;
+    text-align: center;
+    margin-top: -5px;
+    padding-top: 5px;
+}
+
+.calendar-chart .btn {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1.calendar-chart .5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.calendar-chart .5s ease-in;
+}
+
+.calendar-chart .btn {
+   
+}
+
+.calendar-chart .btn {
+    color: #FF7506;
+}
+
+.calendar-chart .btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.calendar-chart .btn-next {
+    margin-left: 1rem;
+}
+
+.calendar-chart .btn-prev {
+    margin-right: 1rem;
+}
+
+.calendar-chart .day.active {
+    color: #fff;
+    background: #FF7506;
+    border-radius: 8px;
+}
+.day-ok-chart{
+    color:#FF9138;
 }

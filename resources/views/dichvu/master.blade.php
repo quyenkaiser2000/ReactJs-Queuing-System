@@ -30,7 +30,7 @@
     <div class="left-sidebar">
         <div class="row" style="margin-right: 0px !important;margin-left: 0px !important;height:100%;">
             <div class="col-2" style="background: #fff;">
-                    <div class="panel ">
+            <div class="panel ">
                             <div class="logo">
                                 <h1>
                                 <img src="{{asset('/storage/pathimg/Logoalta.png')}}" alt="">
@@ -39,33 +39,39 @@
                             <ul>
                                 <li>
                                     <a class="" href="{{'/dashboard'}}" aria-expanded="false">
-                                        <span class="hide-menu">Dashboard</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-bars-progress icon-sidebar"></i>Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{'/thietbi'}}" aria-expanded="false">
-                                        <span class="hide-menu">Thiết bị</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-desktop icon-sidebar"></i>Thiết bị</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="active" href="{{'/dichvu'}}" aria-expanded="false">
-                                        <span class="hide-menu">Dịch vụ</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-comments-dollar icon-sidebar"></i>Dịch vụ</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{'/capso'}}" aria-expanded="false">
-                                        <span class="hide-menu">Cấp số</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-layer-group icon-sidebar"></i>Cấp số</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{'/baocao'}}" aria-expanded="false">
-                                        <span class="hide-menu">Báo cáo</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-chart-area icon-sidebar"></i>Báo cáo</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="" href="{{'/hethong'}}" aria-expanded="false">
-                                        <span class="hide-menu">Cài đặt hệ thống</span>
-                                    </a>
+                                <li class="system">
+                                    <div class="menu-system" href="{{'/hethong'}}" aria-expanded="false">
+                                        <span class="hide-menu "><i class="fa fa-light fa-arrows-to-dot icon-sidebar"></i>Cài đặt hệ thống <i class="fa-solid fa-ellipsis-vertical" style="margin-left:24px;"></i></span>
+                                        <div class="hover-system">
+                                            <a href="system/vaitro"><span>Quản lý vai trò</span></a>
+                                            <a href="system/taikhoan"><span>Quản lý tài khoản</span></a>
+                                            <a href="system/nguoidung"><span>Quản lý người dùng</span></a>
+                                        </div>
+                                    </div>
+                                    
                                 </li>
                             </ul>
                             

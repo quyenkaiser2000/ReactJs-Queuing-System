@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"><!-- Main CSS -->
 	<link href="front/style.css" rel="stylesheet">
 
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body>
 
@@ -34,15 +34,15 @@
                             <div class="signin-content">
                                 <div class="signin-form">
                                    
-                                    <form method="POST" class="register-form" id="login-form" action="{{ route('login') }}">
+                                    <form method="POST" class="register-form" id="login-form" action="/register-user">
 
 
 
                                         @csrf
 
                                         <div class="form-group">
-                                        <label class="username">Tên đăng nhập *</label>
-                                            <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            <label class="username">Tên đăng nhập *</label>
+                                            <input id="email" type="text" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -67,12 +67,56 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="pas">Nhập lại mật khẩu *</label>
+                                            
+                                            <div  id="show_hide_password">
+                                                <input id="password-confirm" type="password" placeholder="Password-Confirm" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                                    @if(session()->has('errorconfirmpas'))
+                                                            <div class="alert alert-danger">
+                                                                {{ session()->get('errorconfirmpas') }}
+                                                            </div>
+                                                        @endif
+                                                    <div class="input-group-addon">
+                                                        <span toggle="#password-confirm" class="far fa-fw fa-eye field-icon toggle-password1"></span>
+                                                     </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="email">Email*</label>
+                                            <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="hoten">Họ tên*</label>
+                                            <input id="name" type="text" placeholder="Họ tên" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sdt">Số điện thoại*</label>
+                                            <input id="sdt" type="sdt" placeholder="Số điện thoại" class="form-control @error('sdt') is-invalid @enderror" name="sdt" value="{{ old('sdt') }}" required autocomplete="sdt" autofocus>
+
+                                                @error('sdt')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <a class="Forgot_password" href="/send-mail">Quên mật khẩu?</a>
                                             
                                         </div>
-                                        <div class="form-group form-button" style="display:flex;">
-                                            <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
-                                            <input  type="button" name="signup" id="signin"  onclick="window.location='./register-user'" value="Đăng ký"/>
+                                        <div class="form-group form-button">
+                                            <input style="width: 200px;" type="submit" name="signin" id="signin" class="form-submit" value="Đăng ký"/>
                                         </div>
                                     </form>
                                     
@@ -108,6 +152,16 @@
     <script>
        
        $(document).on('click','.toggle-password',function(){
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+            }
+       });
+       $(document).on('click','.toggle-password1',function(){
         $(this).toggleClass("fa-eye fa-eye-slash");
             var input = $($(this).attr("toggle"));
             

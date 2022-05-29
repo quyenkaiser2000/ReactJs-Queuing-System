@@ -50,9 +50,18 @@ class User extends Authenticatable
     ];
 
     public function role() {
-        return $this->belongsTo('App\Models\Role');
+        return $this->belongsTo(Role::class,'role_id','id');
     }
     public function userdiarys(){
         return $this->hasMany(UserDiary::class, 'user_id','id');
+    }
+    public function userroledetails(){
+        return $this->hasMany(UserRoleDetail::class, 'user_id','id');
+    }
+    public function usernumberleveldetails(){
+        return $this->hasMany(UserNumberlevelDetail::class, 'user_id','id');
+    }
+    public function numberlevels(){
+        return $this->hasMany(NumberLevel::class, 'user_id','id');
     }
 }

@@ -16,7 +16,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.Auth::user()->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>

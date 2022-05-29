@@ -8,7 +8,7 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb-thietbi">
                                                 <li class="breadcrumb-thietbi-item ">Dịch vụ</li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./thietbi">Danh sách dịch vụ</a></li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./dichvu">Danh sách dịch vụ</a></li>
                                                 <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Chi tiết</li>
                                         </ol>
                                     </nav>
@@ -185,39 +185,27 @@
                                                     <div class="col-1">
 
                                                     </div>
-                                                    <div class="col-7 table-dichvu">
+                                                    <div class="col-7 table-dichvu table-dichvu-detail">
                                                         <div class="row">
                                                             <div class="col-12 search">
                                                                 <div class="status">
-                                                                    <div class="action">
-                                                                        <label for="">Trạng thái</label>
-                                                                        <div class="wrapper-action">
-                                                                            <div class="jumbotron">  
-                                                                                <label class="drop">
-                                                                                <input type="checkbox" id="target-drop-example2"> 
-                                                                                <span class="control">Tất cả</span> 
-
-                                                                                <ul class="drop-items-action">
-                                                                                    <li class="item-drop">
-                                                                                    <a target="_blank"
-                                                                                        href="">Tất cả</a></li>
-                                                                                    <li class="item-drop">
-                                                                                    <a target="_blank"
-                                                                                        href="">Hoạt động</a></li>
-                                                                                    <li class="item-drop">
-                                                                                    <a target="_blank"
-                                                                                        href="">Ngưng hoạt động</a></li>
-                                                                                </ul>
-
-                                                                                <label for="target-drop-example" class="overlay-close"></label>
-
-                                                                                </label>   
-
+                                                                    <form class="action grib-search" action="">
+                                                                            <div>
+                                                                                <label for="">Trạng thái</label>
+                                                                                <div>
+                                                                                    <select class="js-example-basic-single dropdown-search" name="action" onchange="this.form.submit();" required>
+                                                                                        
+                                                                                        <option value="3" {{ request('action') == '3' ? 'selected' : ''}}>Tất cả</option>
+                                                                                        <option value="2" {{ request('action') == '2' ? 'selected' : ''}}>Đã hoàn thành</option>
+                                                                                        <option value="1" {{ request('action') == '1' ? 'selected' : ''}}>Đã thực hiện</option>
+                                                                                        <option value="0" {{ request('action') == '0' ? 'selected' : ''}}>Vắng</option>
+                                                                                
+                                                                                    </select>
+                                                                                </div>
                                                                             </div>
-
                                                                             
-                                                                            </div>
-                                                                    </div>
+                                                                    </form>
+                                                                    
                                                                 </div>
                                                                 <div class="search-key">
                                                                     <label for="">Chọn thời gian</label>
@@ -228,12 +216,12 @@
                                                                 </div>
                                                                 <div class="search-key">
                                                                     <label for="">Từ khóa</label>
-                                                                    <form>
+                                                                    <form action="/dichvu/chitiet/{{$service->id}}">
                                                                         <input 
-                                                                                type="text" plaseholder:"search">
+                                                                            type="text" name="search" placeholder="" value="{{request('search')}}">
                                                                         </input>
                                                                         <button type="submit" value="search" >
-                                                                            <i class="fa fa-search" aria-hidden="true"></i> 
+                                                                            <i class="fa fa-search" aria-hidden="true"></i>     
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -249,31 +237,33 @@
                                                                         </tr>
                                                                     </thead>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <td>KIO_01</td>
-                                                                                
-                                                                                    <td><i class="fa-solid fa-circle icon-action"></i>Hoạt động</td>
-                                                                                
-                                                                                    <td><i class="fa-solid fa-circle icon-stop"></i>Ngưng hoạt động</td>
-                                                                                
-                                                                            </tr>
-                                                                            <tr>
+                                                                            @foreach($numberlevels as $numberlevel)
+                                                                                <tr>
+                                                                                        <td>{{$numberlevel->stt}}</td>
+                                                                                        @if($numberlevel->status == '1')
+                                                                                            <td><i class="fa-solid fa-circle icon-thuchien"></i>Đang thực hiện</td>
+                                                                                        
+                                                                                        @endif
+                                                                                        @if($numberlevel->status == '2')
+                                                                                            <td><i class="fa-solid fa-circle icon-action"></i>Đã hoàn thành</td>
+
+                                                                                        @endif
+
+                                                                                        @if($numberlevel->status == '0')
+                                                                                            <td><i class="fa-solid fa-circle icon-vang"></i>Vắng</td>
+
+                                                                                        @endif
+
+                                                                                    
+                                                                                </tr>
+                                                                            @endforeach
                                                                         </tbody>
 
                                                                     </table>
                                                                     
-                                                                <div class='pagination-container' >
-                                                                    <nav>
-                                                                        <ul class="pagination" style="float:right;">
-                                                                            <li data-page="prev" >
-                                                                                <span> < <span class="sr-only">(current)</span></span>
-                                                                            </li>
-                                                                            <li data-page="next" id="prev">
-                                                                                <span> > <span class="sr-only">(current)</span></span>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </nav>
-                                                                </div>
+                                                                    <div class="pagination-section mb-md-30 mb-sm-30">
+                                                                        {{$numberlevels->links()}}
+                                                                    </div>
                                                             </div>
                                                         </div>
                                                         
@@ -285,8 +275,10 @@
                                         </div>
                                     </div>
                                     <div class=" col-1 btn-editthietbi">
-                                        <button type="button" class="btn" onclick="window.location='./dichvu/capnhatdichvu/{{$service->id}}'"><i class="fa-solid fa-pen"></i>Cập nhật dịch vụ</button>
+                                        <button type="button" class="btn" style="    margin-top: 15px;" onclick="window.location='./dichvu/capnhatdichvu/{{$service->id}}'"><i class="fa-solid fa-pen"></i>Cập nhật dịch vụ</button>
+                                        <button type="button" class="btn" onclick="window.location='./dichvu'"><i class="fa-solid fa-left-long"></i>Quay lại</button>
                                     </div>
+                                    
 
                                 </div>
 

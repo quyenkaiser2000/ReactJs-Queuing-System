@@ -9,7 +9,7 @@
                                         <ol class="breadcrumb-thietbi">
                                                 <li class="breadcrumb-thietbi-item ">Cài đặt hệ thống</li>
                                                 <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i><a href="./system/vaitro">Quản lý vai trò</a></li>
-                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Thêm vai trò</li>
+                                                <li class="breadcrumb-thietbi-item active"><i class="fa-solid fa-angle-right"></i>Cập nhật vai trò</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -99,7 +99,7 @@
                             
                             
                             <div class="row br-detaildevice br-update-device">
-                                <form method="POST" action="/system/vaitro/themvaitro">
+                                <form method="POST" action="/system/vaitro/capnhat/{{$role->id}}">
                                         @csrf
                                         <div class="col-12 form-data" >
                                             <div class="detail-device">
@@ -119,11 +119,11 @@
                                                                     <ul>
                                                                         <li class="update-device">
                                                                             <span>Tên vai trò:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="name_role" value="" required>
+                                                                            <input type="text" name="name_role" value="{{$role->name}}" required>
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Mô tả:</span>
-                                                                            <textarea rows="" cols="" name="decription" class="decription_role"></textarea>
+                                                                            <textarea rows="" cols="" name="decription" class="decription_role" style="padding:10px 12px;">{{$role->decription}}</textarea>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -145,19 +145,35 @@
                                                                         <label for="" class="title-nhomchucnang">Nhóm chức năng thiết bị</label>
                                                                         <ul>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Xem thiết bị" type="checkbox" value="Xem thiết bị" id="xemthietbi">
+                                                                                @if($roledetail->chucnang_1 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Xem thiết bị" type="checkbox" value="Xem thiết bị" id="xemthietbi" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Xem thiết bị" type="checkbox" value="Xem thiết bị" id="xemthietbi">
+
+                                                                                @endif
+
                                                                                 <label class="form-check-label lable-chucnang" for="xemthietbi">
                                                                                     Xem thiết bị
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Thêm thiết bị" type="checkbox" value="Thêm thiết bị" id="themthietbi">
+                                                                                @if($roledetail->chucnang_2 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Thêm thiết bị" type="checkbox" value="Thêm thiết bị" id="themthietbi" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Thêm thiết bị" type="checkbox" value="Thêm thiết bị" id="themthietbi">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="themthietbi">
                                                                                     Thêm thiết bị
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Cập nhật thiết bị" type="checkbox" value="Cập nhật thiết bị" id="capnhatthietbi">
+                                                                                @if($roledetail->chucnang_3 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Cập nhật thiết bị" type="checkbox" value="Thêm thiết bị" id="capnhatthietbi" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Cập nhật thiết bị" type="checkbox" value="Thêm thiết bị" id="capnhatthietbi">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="capnhatthietbi">
                                                                                     Cập nhật thiết bị
                                                                                 </label>
@@ -168,19 +184,34 @@
                                                                         <label for="" class="title-nhomchucnang">Nhóm chức năng dịch vụ</label>
                                                                         <ul>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Xem dịch vụ" type="checkbox" value="Xem dịch vụ" id="xemdichvu">
+                                                                            @if($roledetail->chucnang_4 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Xem dịch vụ" type="checkbox" value="Xem dịch vụ" id="xemdichvu" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Xem dịch vụ" type="checkbox" value="Xem dịch vụ" id="xemdichvu">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="xemdichvu">
                                                                                 Xem dịch vụ
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Cập nhật dịch vụ" type="checkbox" value="Cập nhật dịch vụ" id="capnhatdichvu">
+                                                                            @if($roledetail->chucnang_5 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Cập nhật dịch vụ" type="checkbox" value="Cập nhật dịch vụ" id="capnhatdichvu" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Cập nhật dịch vụ" type="checkbox" value="Cập nhật dịch vụ" id="capnhatdichvu">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="capnhatdichvu">
                                                                                 Cập nhật dịch vụ
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Thêm dịch vụ" type="checkbox" value="Thêm dịch vụ" id="themdichvu">
+                                                                            @if($roledetail->chucnang_6 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Thêm dịch vụ" type="checkbox" value="Thêm dịch vụ" id="themdichvu" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Thêm dịch vụ" type="checkbox" value="Thêm dịch vụ" id="themdichvu">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="themdichvu">
                                                                                 Thêm dịch vụ
                                                                                 </label>
@@ -191,13 +222,23 @@
                                                                         <label for="" class="title-nhomchucnang">Nhóm chức năng Cấp số</label>
                                                                         <ul>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Cấp số" type="checkbox" value="Cấp số" id="capso">
+                                                                            @if($roledetail->chucnang_7 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Cấp số" type="checkbox" value="Cấp số" id="capso" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Cấp số" type="checkbox" value="Cấp số" id="capso">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="capso">
                                                                                     Cấp số
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Xem chi tiết cấp số" type="checkbox" value="Xem chi tiết cấp số" id="xemchitietcapso">
+                                                                            @if($roledetail->chucnang_8 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Xem chi tiết cấp số" type="checkbox" value="Xem chi tiết cấp số" id="xemchitietcapso" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Xem chi tiết cấp số" type="checkbox" value="Xem chi tiết cấp số" id="xemchitietcapso">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="xemchitietcapso">
                                                                                     Xem chi tiết cấp số
                                                                                 </label>
@@ -208,7 +249,12 @@
                                                                         <label for="" class="title-nhomchucnang">Nhóm chức năng báo cáo</label>
                                                                         <ul>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Báo cáo" type="checkbox" value="Báo cáo" id="baocao">
+                                                                            @if($roledetail->chucnang_9 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Báo cáo" type="checkbox" value="Báo cáo" id="baocao" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Báo cáo" type="checkbox" value="Báo cáo" id="baocao">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="baocao">
                                                                                 Báo cáo
                                                                                 </label>
@@ -219,19 +265,34 @@
                                                                         <label for="" class="title-nhomchucnang">Nhóm chức năng quản lý hệ thống</label>
                                                                         <ul>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Quản lý vai trò" type="checkbox" value="Quản lý vai trò" id="quanlyvaitro">
+                                                                            @if($roledetail->chucnang_10 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Quản lý vai trò" type="checkbox" value="Quản lý vai trò" id="quanlyvaitro" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Quản lý vai trò" type="checkbox" value="Quản lý vai trò" id="quanlyvaitro">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="quanlyvaitro">
                                                                                 Quản lý vai trò
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang" name="Quản lý tài khoản" type="checkbox" value="Quản lý tài khoản" id="quanlytaikhoan">
+                                                                            @if($roledetail->chucnang_11 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Quản lý tài khoản" type="checkbox" value="Quản lý tài khoản" id="quanlytaikhoan" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Quản lý tài khoản" type="checkbox" value="Quản lý tài khoản" id="quanlytaikhoan">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="quanlytaikhoan">
                                                                                 Quản lý tài khoản
                                                                                 </label>
                                                                             </li>
                                                                             <li class="form-check">
-                                                                                <input class="form-check-input checkbox-chucnang"  name="Quản lý người dùng" type="checkbox" value="Quản lý người dùng" id="quanlynguoidung">
+                                                                            @if($roledetail->chucnang_12 != null )
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Quản lý người dùng" type="checkbox" value="Quản lý người dùng" id="quanlynguoidung" checked="checked">
+                                                                                @else
+                                                                                    <input class="form-check-input checkbox-chucnang" name="Quản lý người dùng" type="checkbox" value="Quản lý người dùng" id="quanlynguoidung">
+
+                                                                                @endif
                                                                                 <label class="form-check-label lable-chucnang" for="quanlynguoidung">
                                                                                 Quản lý người dùng
                                                                                 </label>
@@ -248,7 +309,7 @@
                                         </div>
                                         <div class="col-12 form-submit">
                                             <button type="button" class="btn-huy" onclick="window.location='./system/vaitro'">Hủy bỏ</button>
-                                            <button type="submit" class="btn-update">Thêm</button>
+                                            <button type="submit" class="btn-update">Cập nhật</button>
                                         </div>
                                     </form>
 

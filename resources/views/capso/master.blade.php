@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://kit.fontawesome.com/dff14b3591.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"><!-- Main CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link href="front/style.css" rel="stylesheet">
 
@@ -25,7 +30,7 @@
     <div class="left-sidebar">
         <div class="row" style="margin-right: 0px !important;margin-left: 0px !important;height:100%;">
             <div class="col-2" style="background: #fff;">
-                    <div class="panel ">
+            <div class="panel ">
                             <div class="logo">
                                 <h1>
                                 <img src="{{asset('/storage/pathimg/Logoalta.png')}}" alt="">
@@ -34,33 +39,39 @@
                             <ul>
                                 <li>
                                     <a class="" href="{{'/dashboard'}}" aria-expanded="false">
-                                        <span class="hide-menu">Dashboard</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-bars-progress icon-sidebar"></i>Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{'/thietbi'}}" aria-expanded="false">
-                                        <span class="hide-menu">Thiết bị</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-desktop icon-sidebar"></i>Thiết bị</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{'/dichvu'}}" aria-expanded="false">
-                                        <span class="hide-menu">Dịch vụ</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-comments-dollar icon-sidebar"></i>Dịch vụ</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="active" href="{{'/capso'}}" aria-expanded="false">
-                                        <span class="hide-menu">Cấp số</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-layer-group icon-sidebar"></i>Cấp số</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{'/baocao'}}" aria-expanded="false">
-                                        <span class="hide-menu">Báo cáo</span>
+                                        <span class="hide-menu"><i class="fa fa-light fa-chart-area icon-sidebar"></i>Báo cáo</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="" href="{{'/hethong'}}" aria-expanded="false">
-                                        <span class="hide-menu">Cài đặt hệ thống</span>
-                                    </a>
+                                <li class="system">
+                                    <div class="menu-system" href="{{'/hethong'}}" aria-expanded="false">
+                                        <span class="hide-menu "><i class="fa fa-light fa-arrows-to-dot icon-sidebar"></i>Cài đặt hệ thống <i class="fa-solid fa-ellipsis-vertical" style="margin-left:24px;"></i></span>
+                                        <div class="hover-system">
+                                            <a href="system/vaitro"><span>Quản lý vai trò</span></a>
+                                            <a href="system/taikhoan"><span>Quản lý tài khoản</span></a>
+                                            <a href="system/nguoidung"><span>Quản lý người dùng</span></a>
+                                        </div>
+                                    </div>
+                                    
                                 </li>
                             </ul>
                             
@@ -282,9 +293,23 @@
         element.classList.remove("test1");
     }
     });
+    $('input[name="dates"]').daterangepicker({
+        
+        locale: {
+        format: 'YYYY/MM/DD '
+    }
+    });
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+
+        // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function() {
         $('.js-example-basic-single').select2();
     });
+
+        // In your Javascript (external .js resource or <script> tag)
+    
 </script>
 
 </html>

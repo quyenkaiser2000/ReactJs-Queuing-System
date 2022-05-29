@@ -16,7 +16,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -98,44 +98,32 @@
                             <div class="row">
                                 <div class="col-11 search">
                                     <div class="status">
-                                        <div class="action">
-                                            <label for="">Tên vai trò</label>
-                                            <div class="wrapper-action">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example2"> 
-                                                    <span class="control">Tất cả</span> 
-
-                                                    <ul class="drop-items-action">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Hoạt động</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Ngưng hoạt động</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
+                                        <form class="action grib-search" action="">
+                                                <div>
+                                                    <label for="">Vai trò</label>
+                                                    <div>
+                                                        <select class="js-example-basic-single dropdown-search" name="action" onchange="this.form.submit();" required>
+                                                            
+                                                        <option value="0" {{ request('action') == '0' ? 'selected' : ''}}>Tất cả</option>
+                                                        <option value="0" {{ request('action') == '0' ? 'selected' : ''}}>Tất cả</option>
+                                                            @foreach($roles as $role)
+                                                                <option value="{{$role->id}}" {{ request('action') == '' ? 'selected' : ''}}>{{$role->name}}</option>
+                                                            @endforeach
+                                                    
+                                                        </select>
+                                                    </div>
                                                 </div>
-
                                                 
-                                                </div>
-                                        </div>
+                                        </form>
                                     </div>
                                     <div class="search-key">
                                         <label for="">Từ khóa</label>
-                                        <form>
+                                        <form action="/system/taikhoan">
                                             <input 
-                                                    type="text" plaseholder:"search">
+                                                type="text" name="search" placeholder="" value="{{request('search')}}">
                                             </input>
                                             <button type="submit" value="search" >
-                                                <i class="fa fa-search" aria-hidden="true"></i> 
+                                                <i class="fa fa-search" aria-hidden="true"></i>     
                                         </form>
                                     </div>
                                 </div>
@@ -157,92 +145,28 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>tuyetnguyen@12</td>
-                                                        <td>Nguyen Văn A</td>
-                                                        <td>0919256712</td>
-                                                        <td>tuyetnguyen123@gmail.com</td>
-                                                        <td>Kế toán</td>
-                                                        <td><i class="fa-solid fa-circle"></i> Ngưng hoạt động</td>
-                                                        <td><a href="./thietbi/capnhatthietbi">Cập nhật</a></td>
-                                                        
-                                                    </tr>
+                                                    @foreach($users as $user)
+                                                        <tr>
+                                                            <td>{{$user->username}}</td>
+                                                            <td>{{$user->name}}</td>
+                                                            <td>{{$user->phone}}</td>
+                                                            <td>{{$user->email}}</td>
+                                                            <td>{{$user->role->name}}</td>
+                                                            @if($user->status == '1')
+                                                                <td><i class="fa-solid fa-circle icon-action"></i>Hoạt động</td>
+                                                            @else
+                                                                <td><i class="fa-solid fa-circle icon-stop"></i>Ngưng hoạt động</td>
+                                                            @endif
+                                                            <td><a href="./system/taikhoan/capnhat/{{$user->id}}">Cập nhật</a></td>
+                                                        </tr>
+                                                    @endforeach
                                                     
                                                         
                                                 </tbody>
 
                                             </table>
-                                            <div class='pagination-container' >
-                                                <nav>
-                                                    <ul class="pagination" style="float:right;">
-                                                        <li data-page="prev" >
-                                                            <span> < <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                        <li data-page="next" id="prev">
-                                                            <span> > <span class="sr-only">(current)</span></span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
+                                            <div class="pagination-section mb-md-30 mb-sm-30">
+                                                {{$users->links()}}
                                             </div>
                                     </div>
                                     <div class=" col-1 btn-addthietbi">

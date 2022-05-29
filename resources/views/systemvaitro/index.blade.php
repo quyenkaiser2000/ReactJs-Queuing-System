@@ -16,7 +16,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.$useravatar->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -99,12 +99,12 @@
                                 <div class="col-11 search" style="display:block;">
                                     <div class="search-key" style="float:right;">
                                         <label for="">Từ khóa</label>
-                                        <form>
+                                        <form action="/system/vaitro">
                                             <input 
-                                                    type="text" plaseholder:"search">
+                                                type="text" name="search" placeholder="" value="{{request('search')}}">
                                             </input>
                                             <button type="submit" value="search" >
-                                                <i class="fa fa-search" aria-hidden="true"></i> 
+                                                <i class="fa fa-search" aria-hidden="true"></i>     
                                         </form>
                                     </div>
                                     
@@ -124,48 +124,15 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Kế toán</td>
-                                                        <td>6</td>
-                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
+                                                    @foreach($roles as $role)
+                                                        <tr>
+                                                            <td>{{$role->name}}</td>
+                                                            <td>{{count($role->users)}}</td>
+                                                            <td>{{$role->decription}}</td>
+                                                            <td><a href="./system/vaitro/capnhat/{{$role->id}}">Cập nhật</a></td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bác sĩ</td>
-                                                        <td>6</td>
-                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Lễ tân</td>
-                                                        <td>6</td>
-                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Quản lý</td>
-                                                        <td>6</td>
-                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Admin</td>
-                                                        <td>6</td>
-                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Mô tả</td>
-                                                        <td>6</td>
-                                                        <td>Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu</td>
-                                                        <td><a href="./thietbi/chitiet">Chi tiết</a></td>
-
-                                                    </tr>
+                                                        </tr>
+                                                    @endforeach
                                                     
                                                     
                                                         

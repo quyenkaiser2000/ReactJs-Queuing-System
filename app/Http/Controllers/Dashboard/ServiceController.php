@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Service;
+use App\Models\UserDiary;
+use App\Models\NumberLevel;
 use Carbon\Carbon;
 class ServiceController extends Controller
 {
@@ -15,12 +17,6 @@ class ServiceController extends Controller
         
         $action = $request->action ?? 2;
         $search = $request->search ?? '';
-
-
-        
-        
-
-
 
 
         if($action != '2'){
@@ -52,8 +48,18 @@ class ServiceController extends Controller
         
        $data = $request->all();
         Service::create($data);
-        $service->save();
+        
 
+        $service = Service::select('id','name','created_at')->orderBy('created_at', 'DESC')->get()->first();
+        
+        $description = "Tạo dịch vụ ". '' .$service->name;
+        $UserDiary = new UserDiary([
+            'user_id' => Auth::user()->id,
+            'time_action'=> $service->created_at,
+            'ip_action' => request()->ip(),
+            'description_action' => $description 
+        ]);
+        $UserDiary->save();
 
         return redirect()->back();
     }
@@ -74,13 +80,49 @@ class ServiceController extends Controller
         $service->reset_day = $request->reset_day;
 
         $service->save();
+
+        $service = Service::select('id','name','updated_at')->orderBy('updated_at', 'DESC')->get()->first();
+        
+        $description = "Cập nhật thông tin dịch vụ ". '' .$service->name;
+        $UserDiary = new UserDiary([
+            'user_id' => Auth::user()->id,
+            'time_action'=> $service->updated_at,
+            'ip_action' => request()->ip(),
+            'description_action' => $description 
+        ]);
+        $UserDiary->save();
         return redirect()->back();
 
     }
     
-    public function detail($id){
+    public function detail(Request $request, $id){
+        $action = $request->action ?? 3;
+        $search = $request->search ?? '';
         $useravatar = User::find(Auth::user()->id);
         $service = Service::findOrFail($id);
-        return view('dichvu.detaildichvu',compact('useravatar','service'));
+        $numberlevels = NumberLevel::select('id','service_id','stt','status')->where('service_id',$id)->paginate(8);
+
+
+        if($action != '3'){
+            $numberlevels = NumberLevel::select('id','service_id','stt','status')->where('status', $action)->paginate(8);
+        }
+        if($action == '3'){
+            $numberlevels = NumberLevel::paginate(8);
+            
+        }
+        if($search != ''){
+            $numberlevels = NumberLevel::select('id','service_id','stt','status')->where('stt','like','%'. $search .'%')->paginate(8);
+        }
+        if($request->dates != null){
+            $ex_dates = explode(" - ",$request->dates);
+
+            $numberlevels = NumberLevel::select('id','service_id','stt','status')
+            ->whereBetween('created_at', [$ex_dates[0], $ex_dates[1]])
+            ->paginate(8);
+
+        }
+        $numberlevels->appends(['action' => $action]);
+
+        return view('dichvu.detaildichvu',compact('useravatar','service','numberlevels'));
     }
 }

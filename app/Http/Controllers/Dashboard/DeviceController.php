@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Device;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\UserDiary;
 use App\Models\DeviceCategory;
 use App\Models\DeviceDetail;
 use DB;
@@ -48,33 +49,7 @@ class DeviceController extends Controller
     }
     
 
-    public function actionconnect($devices,$action,$connect){
-        switch ($sortby){
-          case 1:
-            $products = $products->orderBy('id');
-            break;
-          case 2:
-            $products = $products->orderBy('name');
-            break;
-          case 3:
-            $products = $products->orderBy('price');
-            break;
-          case 4:
-            $products = $products->orderByDesc('price');
-            break;
-          default:
-            $products = $products->orderBy('id');
-        }
-  
-  
-  
-  
-        $products = $products->paginate($perpage);
-  
-        $products->appends(['sort_by' => $sortby,'show' => $perpage]);
-  
-        return $products;
-    }
+   
 
 
 
@@ -118,7 +93,18 @@ class DeviceController extends Controller
             ]);
             $devicedetail->save();
         }
+
+
+        $device = Device::select('id','name','created_at')->orderBy('created_at', 'DESC')->get()->first();
         
+        $description = "Tạo thiết bị ". '' .$device->name;
+        $UserDiary = new UserDiary([
+            'user_id' => Auth::user()->id,
+            'time_action'=> $device->created_at,
+            'ip_action' => request()->ip(),
+            'description_action' => $description 
+        ]);
+        $UserDiary->save();
 
         return redirect()->back();
     }
@@ -143,6 +129,17 @@ class DeviceController extends Controller
         $device->status_action = '1';
         $device->status_connect ='1';
         $device->save();
+
+        $device = Device::select('id','name','updated_at')->orderBy('updated_at', 'DESC')->get()->first();
+        
+        $description = "Cập nhật thiết bị ". '' .$device->name;
+        $UserDiary = new UserDiary([
+            'user_id' => Auth::user()->id,
+            'time_action'=> $device->updated_at,
+            'ip_action' => request()->ip(),
+            'description_action' => $description 
+        ]);
+        $UserDiary->save();
 
         return redirect()->back();
     }

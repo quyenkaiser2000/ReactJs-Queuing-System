@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             DeviceCategorySeeder::class,
             ServiceSeeder::class,
+            RoleDetailSeeder::class,
+            UserRoleDetailSeeder::class,
             
         ]);
     }

@@ -99,7 +99,7 @@
                             
                             
                             <div class="row br-detaildevice br-update-device">
-                                    <form method="POST" action="/system/taikhoan/themtaikhoan">
+                                    <form method="POST" action="/system/taikhoan/capnhat/{{$user->id}}">
                                         @csrf
                                         <div class="col-12 form-data" >
                                             <div class="detail-device">
@@ -119,19 +119,20 @@
                                                                     <ul class="system-taikhoan">
                                                                         <li class="update-device">
                                                                             <span>Họ tên:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="hoten" value="" required placeholder="Nhập họ tên">
+                                                                            <input type="text" name="hoten" value="{{$user->name}}" required placeholder="Nhập họ tên">
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Số điện thoại:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="text" name="sdt" value="" required placeholder="Nhập số điện thoại">
+                                                                            <input type="text" name="sdt" value="{{$user->phone}}" required placeholder="Nhập số điện thoại">
                                                                         </li>
                                                                         <li class="update-device">
                                                                             <span>Email:<i class="fa-solid fa-asterisk"></i></span>
-                                                                            <input type="email" name="email" value="" required placeholder="Nhập email">
+                                                                            <input type="email" name="email" value="{{$user->email}}" required placeholder="Nhập email">
                                                                         </li>
                                                                         <li class="update-device dropdown-updevice">
                                                                             <span>Vai trò:<i class="fa-solid fa-asterisk"></i></span>
                                                                             <select class="js-example-basic-single" name="role" required>
+                                                                                <option selected  value="{{$user->role_id}}">{{$user->role->name}}</option>
                                                                                 @foreach($roles as $role)
                                                                                     <option value="{{$role->id}}">{{$role->name}}</option>
                                                                                 @endforeach
@@ -151,12 +152,12 @@
                                                                     
                                                                     <li class="update-device">
                                                                         <span>Tên đăng nhập:<i class="fa-solid fa-asterisk"></i></span>
-                                                                        <input type="text" name="name_login_device" value="" placeholder="Nhập tên đăng nhập" required>
+                                                                        <input type="text" name="name_login_device" value="{{$user->username}}" placeholder="Nhập tên đăng nhập" required>
                                                                     </li>
                                                                     <li class="update-device">
                                                                         <label class="pas">Mật khẩu *</label>
                                                                         <div  id="show_hide_password">
-                                                                            <input id="password" type="password" placeholder="Mật khẩu" name="password" required >
+                                                                            <input id="password" type="password" placeholder="Mật khẩu" name="password" value="{{$user->password}}" required >
                                                                                 
                                                                                 <div class="input-group-addon">
                                                                                     <span toggle="#password" class="far fa-fw fa-eye field-icon toggle-password-enter"></span>
@@ -166,12 +167,11 @@
                                                                     <li class="update-device">
                                                                         <label class="pas">Nhập lại mật khẩu *</label>
                                                                         <div  id="show_hide_password">
-                                                                            <input id="password-field-enter" type="password" placeholder="Nhập lại mật khẩu" name="password_enter" required >
+                                                                            <input id="password-field-enter" type="password" placeholder="Nhập lại mật khẩu" name="password_enter"  value="{{$user->password}}" required >
                                                                                 
                                                                                 <div class="input-group-addon">
                                                                                     <span toggle="#password-field-enter" class="far fa-fw fa-eye field-icon toggle-password-enter"></span>
                                                                                 </div>
-                                                                                
                                                                         </div>
                                                                         @if(session()->has('errorconfirmpas'))
                                                                                 <div class="alert alert-danger">
@@ -182,9 +182,19 @@
                                                                     <li class="update-device dropdown-updevice">
                                                                         <span>Tình trạng:<i class="fa-solid fa-asterisk"></i></span>
                                                                         <select class="js-example-basic-single" name="status" required>
-                                                                                <option value="1">Hoạt động</option>
+                                                                                @if($user->status == '1')
+                                                                                    <option selected value="1">Hoạt động</option>
+                                                                                @else
+                                                                                    <option value="1">Hoạt động</option>
+
+                                                                                @endif
+                                                                                
+                                                                                @if($user->status == '0')
                                                                             
-                                                                                <option value="0">Ngưng hoạt động</option>
+                                                                                    <option selected value="0">Ngưng hoạt động</option>
+                                                                                @else
+                                                                                    <option  value="0">Ngưng hoạt động</option>
+                                                                                @endif
                                                                         </select>
                                                                         
                                                                     </li>
@@ -201,7 +211,7 @@
                                         </div>
                                         <div class="col-12 form-submit">
                                             <button type="button" class="btn-huy" onclick="window.location='./system/taikhoan'" >Hủy bỏ</button>
-                                            <button type="submit" class="btn-update">Thêm tài khoản</button>
+                                            <button type="submit" class="btn-update">Cập nhật    tài khoản</button>
                                         </div>
                                     </form>
 

@@ -16,7 +16,7 @@
                                     <div class="profile-mini">
                                         <span class="fa fa-solid fa-bell icon-bell click-notification"> </span>
                                         <div class="img-profile-mini" onclick="window.location='/myprofile'">
-                                            <img   src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/279563282_3338149473073471_6135922759493358654_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=B-TucuA8lqQAX_NGZI6&_nc_ht=scontent.fsgn5-11.fna&oh=00_AT_TQW2bmOayZkjYLKLQz9LD99aLrrwEk6o5nrKJUC35Mw&oe=6286F6A8" alt="">
+                                            <img   src="{{asset('/storage/pathimg/'.Auth::user()->avatar)}}" alt="">
                                             <div class="notification hide" id="notification">
                                                 <span class="title-notification">Thông báo</span>
                                                 <ul class="content-notification">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="name-profile-mini">
                                                 <span>Xin chào</span>
-                                                <span>Nguyễn Lê Long</span>
+                                                <span>{{Auth::user()->name}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -89,65 +89,13 @@
                             
                             <div class="row">
                                 <div class="col-11 search">
-                                    <div class="status">
-                                        <div class="action">
-                                            <label for="">Chọn thời gian</label>
-                                            <div class="wrapper-action">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example2"> 
-                                                    <span class="control" >Tất cả</span> 
-
-                                                    <ul class="drop-items-action">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Hoạt động</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Ngưng hoạt động</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
-                                                </div>
-
-                                                
-                                                </div>
-                                        </div>
-                                        <div class="connect" style="margin-right:24px;">
-                                            <label for="" style="opacity:0;">Tình trạng</label>
-                                            <div class="wrapper-connect">
-                                                <div class="jumbotron">  
-                                                    <label class="drop">
-                                                    <input type="checkbox" id="target-drop-example1"> 
-                                                    <span class="control">Tất cả</span> 
-
-                                                    <ul class="drop-items-connect">
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Tất cả</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Kết nối</a></li>
-                                                        <li class="item-drop">
-                                                        <a target="_blank"
-                                                            href="">Mất kết nối</a></li>
-                                                    </ul>
-
-                                                    <label for="target-drop-example" class="overlay-close"></label>
-
-                                                    </label>   
-
-                                                </div>
-
-                                                
-                                                </div>
-                                        </div>
+                                    <div class="search-key">
+                                        <label for="">Chọn thời gian</label>
+                                        <form action="/baocao">
+                                            <input type="text" name="dates" value="{{request('dates')}}"/>
+                                            <button type="submit" value="date" >
+                                                <i class="fa fa-search" aria-hidden="true"></i> 
+                                        </form>
                                     </div>
                                     
                                 </div>
@@ -178,7 +126,7 @@
                                                             @if($baocao->status == '2')
                                                                 <td><i class="fa-solid fa-circle icon-dasudung"></i>Đã sử dụng</td>
                                                             @endif
-                                                            @if($baocao->status == '3')
+                                                            @if($baocao->status == '0')
                                                                 <td><i class="fa-solid fa-circle icon-stop"></i>Bỏ qua</td>
                                                             @endif
                                                             <td>{{$baocao->nguoncap}}</td>
